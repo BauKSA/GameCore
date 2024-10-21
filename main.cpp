@@ -29,7 +29,9 @@ int main(int argc, char** argv) {
 
     al_set_window_title(display, "GameCore");
 
-    al_clear_to_color(al_map_rgb(200, 200, 200));
+    ALLEGRO_BITMAP* static_buffer = al_create_bitmap(SCREEN_WIDTH, SCREEN_HEIGHT);
+    ALLEGRO_BITMAP* dynamic_buffer = al_create_bitmap(SCREEN_WIDTH, SCREEN_HEIGHT);
+
 
     //INICIALIZAMOS TIMER
     ALLEGRO_TIMER* timer = al_create_timer(1.0 / 60.0);
