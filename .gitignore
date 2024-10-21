@@ -1,0 +1,37 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.vcxproj.user
+*.filters
+*.ipch
+*.VC.db
+*.VC.VC.opendb
+*.log
+
+# Compilación
+Debug/
+Release/
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.pch
+
+# Salida de compilación
+*.exe
+*.dll
+*.lib
+*.out
+*.so
+*.a
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Archivos temporales del sistema operativo
+*.tmp
+*.temp
