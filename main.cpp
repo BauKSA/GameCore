@@ -72,13 +72,16 @@ int main(int argc, char** argv) {
     al_flip_display();
 
     test_input->start_listening();
-    test_input->listen();
+    test_player->move(RIGHT);
     //------------
     //TESTING  END
     //------------
 
     while (running) {
-
+        test_input->listen();
+        al_clear_to_color(al_map_rgb(255, 255, 255));
+        test_player->draw();
+        al_flip_display();
     }
 
     // Destruir el display

@@ -3,6 +3,8 @@
 #include "BaseActor.h"
 
 void BaseActor::move(directions dir) {
+	std::cout << "DIRECTION: " << dir << std::endl;
+	std::cout << "Actual POS: " << x << ", " << y << ". vel: " << speed << std::endl;
 	switch (dir) {
 	case UP:
 		y -= speed;

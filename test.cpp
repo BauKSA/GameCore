@@ -1,7 +1,7 @@
 #include "Test.h"
 
 BaseActor* initialize_test() {
-	BaseActor* actor = new BaseActor("test_actor", 10, 10, "./test.png", 2);
+	BaseActor* actor = new BaseActor("test_actor", 10, 10, "./test.png", 15);
 
 	return actor;
 }
@@ -23,9 +23,12 @@ static std::vector<Actions> set_actions() {
 
 InputSystem* initialize_input(BaseActor* actor) {
 	std::vector<Actions> actions = set_actions();
-	InputSystem* actor_input = new InputSystem(actor, actions, [](std::string action) {
-		std::cout << "Action <" << action << "> excecuted!" << std::endl;
-		});
+	InputSystem* actor_input = new InputSystem(actor, actions, [](std::string action, BaseActor* actor) {
+		if (action == "right") {
+			std::cout << "MOVEMOS AL PJ A LA DERECHA" << std::endl;
+			actor->move(RIGHT);
+		}
+	});
 
 	return actor_input;
 }
