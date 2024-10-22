@@ -1,10 +1,15 @@
 #pragma once
 #include<vector>
 #include<string>
+#include<chrono>
 #include<allegro5/allegro5.h>
 #include<allegro5/allegro_image.h>
 
 #ifndef _UTILS_
+#define _UTILS_
+
+constexpr int SCREEN_WIDTH = 800;
+constexpr int SCREEN_HEIGHT = 600;
 
 enum directions {
 	UP = 1,
@@ -12,9 +17,6 @@ enum directions {
 	RIGHT = 3,
 	LEFT = 4
 };
-
-constexpr int SCREEN_WIDTH = 800;
-constexpr int SCREEN_HEIGHT = 600;
 
 struct Sprite {
 	int width;

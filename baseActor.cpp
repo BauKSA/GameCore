@@ -20,4 +20,6 @@ void BaseActor::move(directions dir) {
 		std::cerr << "Error moving actor " << name;
 		return;
 	}
+
+	std::cout << "Moving actor " << name << " to pos: " << x << ", " << y << std::endl;
 }

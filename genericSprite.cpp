@@ -1,7 +1,7 @@
 #include<iostream>
 #include "GenericSprite.h"
 
-void GenericSprite::draw(int flags = 0) {
+void GenericSprite::draw(int flags) {
 	if (!sprite) {
 		std::cerr << "Image charging failed for " << name << std::endl;
 	}

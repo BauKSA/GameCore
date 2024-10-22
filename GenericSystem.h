@@ -1,7 +1,5 @@
 #include<vector>
 
-#include "BaseActor.h"
-
 #ifndef _GENERICSYSTEM_
 #define _GENERICSYSTEM_
 

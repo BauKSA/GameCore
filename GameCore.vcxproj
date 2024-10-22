@@ -183,10 +183,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="baseActor.cpp" />
+    <ClCompile Include="genericSprite.cpp" />
+    <ClCompile Include="inputSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseActor.h" />
+    <ClInclude Include="GenericSprite.h" />
+    <ClInclude Include="GenericSystem.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="InputSystem.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

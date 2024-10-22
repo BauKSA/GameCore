@@ -4,6 +4,9 @@
 #include<allegro5/allegro_native_dialog.h>
 
 #include "Utils.h"
+#include "BaseActor.h"
+
+#include "Test.h"
 
 int main(int argc, char** argv) {
     //INICIALIZAMOS ALLEGRO
@@ -58,13 +61,24 @@ int main(int argc, char** argv) {
 
     bool running = true;
 
-    while (running) {
-        ALLEGRO_EVENT ev;
-        al_wait_for_event(event_queue, &ev);
+    //------------
+    //TESTING INIT
+    //------------
+    BaseActor* test_player = initialize_test();
+    InputSystem* test_input = initialize_input(test_player);
 
-        if (ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE) {
-            running = false;
-        }
+    al_clear_to_color(al_map_rgb(255, 255, 255));
+    test_player->draw();
+    al_flip_display();
+
+    test_input->start_listening();
+    test_input->listen();
+    //------------
+    //TESTING  END
+    //------------
+
+    while (running) {
+
     }
 
     // Destruir el display
