@@ -48,6 +48,14 @@ int main(int argc, char** argv) {
         return -1;
     }
 
+    //INICIALIZAMOS JOYSTICK
+    if (!al_install_joystick()) {
+        al_show_native_message_box(nullptr, "Error", "Error initializing", "Can't initialize Allegro Joystick", nullptr, ALLEGRO_MESSAGEBOX_ERROR);
+        al_destroy_display(display);
+        al_uninstall_keyboard();
+        return -1;
+    }
+
     ALLEGRO_EVENT_QUEUE* event_queue = al_create_event_queue();
     if (!event_queue) {
         al_show_native_message_box(nullptr, "Error", "Error initializing", "Can't initialize Allegro Event Queue", nullptr, ALLEGRO_MESSAGEBOX_ERROR);
@@ -80,6 +88,7 @@ int main(int argc, char** argv) {
     while (running) {
         test_input->listen();
         al_clear_to_color(al_map_rgb(255, 255, 255));
+        test_player->tick();
         test_player->draw();
         al_flip_display();
     }

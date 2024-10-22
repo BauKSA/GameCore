@@ -183,6 +183,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="animatedActor.cpp" />
     <ClCompile Include="baseActor.cpp" />
     <ClCompile Include="genericSprite.cpp" />
     <ClCompile Include="inputSystem.cpp" />
@@ -190,9 +191,11 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="BaseActor.h" />
     <ClInclude Include="GenericSprite.h" />
     <ClInclude Include="GenericSystem.h" />
+    <ClInclude Include="JoystickMapping.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="InputSystem.h" />

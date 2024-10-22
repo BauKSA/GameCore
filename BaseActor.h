@@ -12,16 +12,24 @@
 class BaseActor: public GenericSprite {
 protected:
 	float speed;
+	bool mup;
+	bool mdown;
+	bool mright;
+	bool mleft;
 public:
-	BaseActor(std::string name, float x, float y, std::string sprite_path, float _speed) :
-		GenericSprite(name, x, y, sprite_path), speed(_speed) {
-		std::cout << "Actor created: " << std::endl;
-		std::cout << "Name: " << name << std::endl;
-		std::cout << "Pos: " << x << ", " << y << std::endl;
-		std::cout << "Speed: " << speed << std::endl;
+	BaseActor(std::string name, float x, float y, float _speed) :
+		GenericSprite(name, x, y), speed(_speed) {
+		mup = false;
+		mdown = false;
+		mright = false;
+		mleft = false;
 	};
 
+	void initialize_sprite(std::string path) override { GenericSprite::initialize_sprite(path); }
+
 	void move(directions dir);
+	void set_movement(directions dir, bool key_pressed = true);
+	virtual void tick();
 };
 
 #endif // !_BASEACTOR_

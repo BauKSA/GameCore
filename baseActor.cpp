@@ -3,8 +3,6 @@
 #include "BaseActor.h"
 
 void BaseActor::move(directions dir) {
-	std::cout << "DIRECTION: " << dir << std::endl;
-	std::cout << "Actual POS: " << x << ", " << y << ". vel: " << speed << std::endl;
 	switch (dir) {
 	case UP:
 		y -= speed;
@@ -22,6 +20,42 @@ void BaseActor::move(directions dir) {
 		std::cerr << "Error moving actor " << name;
 		return;
 	}
+}
 
-	std::cout << "Moving actor " << name << " to pos: " << x << ", " << y << std::endl;
+void BaseActor::set_movement(directions dir, bool key_pressed) {
+	switch (dir) {
+	case UP:
+		mup = key_pressed;
+		break;
+	case DOWN:
+		mdown = key_pressed;
+		break;
+	case RIGHT:
+		mright = key_pressed;
+		break;
+	case LEFT:
+		mleft = key_pressed;
+		break;
+	default:
+		std::cerr << "Error moving actor " << name;
+		return;
+	}
+}
+
+void BaseActor::tick() {
+	if (mup && !mdown) {
+		move(UP);
+	}
+
+	if (mdown && !mup) {
+		move(DOWN);
+	}
+
+	if (mright && !mleft) {
+		move(RIGHT);
+	}
+
+	if (mleft && !mright) {
+		move(LEFT);
+	}
 }

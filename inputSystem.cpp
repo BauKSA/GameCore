@@ -24,6 +24,7 @@ void InputSystem::start_listening() {
 	}
 
 	al_register_event_source(queue, al_get_keyboard_event_source());
+	al_register_event_source(queue, al_get_joystick_event_source());
 
 	listening = true;
 }
@@ -34,10 +35,18 @@ void InputSystem::listen() {
 		check_key_queue();
 
 		if (al_get_next_event(queue, &ev)) {
-			if (ev.type != ALLEGRO_EVENT_KEY_DOWN) return;
+			if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
+				add_key_to_queue(ev.keyboard.keycode);
+				return dispatch(ev.keyboard.keycode, true);
+			} else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
+				return dispatch(ev.keyboard.keycode, false);
+			} else if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN) {
+				add_key_to_queue(ev.joystick.button);
+				return dispatch(ev.joystick.button, true);
+			} else if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_UP) {
+				return dispatch(ev.joystick.button, false);
+			}
 
-			add_key_to_queue(ev.keyboard.keycode);
-			dispatch(ev.keyboard.keycode);
 		}
     }
 }
@@ -60,10 +69,12 @@ void InputSystem::check_key_queue() {
 	if (delta_time > KEY_TIME) reset_keys();
 }
 
-void InputSystem::dispatch(int key) {
+void InputSystem::dispatch(int key, bool key_pressed) {
 	for (int i = 0; i < actions.size(); i++) {
-		if (key == actions.at(i).key) {
-			manager(actions.at(i).action, actor);
+		for (int k : actions.at(i).keys) {
+			if (k == key) {
+				manager(actions.at(i).action, key_pressed, actor);
+			}
 		}
 	}
 }
