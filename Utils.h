@@ -10,6 +10,7 @@
 
 constexpr int SCREEN_WIDTH = 800;
 constexpr int SCREEN_HEIGHT = 600;
+constexpr float FRAME_RATE = .25;
 
 enum directions {
 	UP = 1,

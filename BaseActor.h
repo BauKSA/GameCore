@@ -30,6 +30,7 @@ public:
 	void move(directions dir);
 	void set_movement(directions dir, bool key_pressed = true);
 	virtual void tick();
+	virtual void tick(float delta_time) { tick(); };
 };
 
 #endif // !_BASEACTOR_

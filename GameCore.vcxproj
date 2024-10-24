@@ -183,20 +183,25 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="allegroInitializer.cpp" />
     <ClCompile Include="animatedActor.cpp" />
     <ClCompile Include="baseActor.cpp" />
     <ClCompile Include="genericSprite.cpp" />
+    <ClCompile Include="genericSystem.cpp" />
     <ClCompile Include="inputSystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="tickSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllegroInitializer.h" />
     <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="BaseActor.h" />
     <ClInclude Include="GenericSprite.h" />
     <ClInclude Include="GenericSystem.h" />
     <ClInclude Include="JoystickMapping.h" />
     <ClInclude Include="Test.h" />
+    <ClInclude Include="TickSystem.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="Utils.h" />

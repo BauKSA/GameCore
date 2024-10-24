@@ -15,8 +15,7 @@ enum format {
 
 class Timer {
 public:
-	static int difference(time_point<steady_clock> init, format f = MILLISECONDS) {
-		const time_point<steady_clock> current = steady_clock::now();
+	static float difference(time_point<steady_clock> init, time_point<steady_clock> current = Timer::now(), format f = MILLISECONDS) {
 		int dif = duration_cast<milliseconds>(current - init).count();
 
 		if (f == MILLISECONDS) return dif;

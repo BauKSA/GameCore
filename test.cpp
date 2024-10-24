@@ -1,9 +1,17 @@
 #include "Test.h"
 #include "JoystickMapping.h"
 
-BaseActor* initialize_test() {
-	BaseActor* actor = new BaseActor("test_actor", 10, 10, .1);
-	actor->initialize_sprite("./test.png");
+AnimatedActor* initialize_test() {
+	std::vector<std::string> paths = {
+		"./test0.png",
+		"./test1.png",
+		"./test2.png",
+		"./test3.png",
+		"./test4.png",
+	};
+
+	AnimatedActor* actor = new AnimatedActor("test_actor", 10, 10, .125);
+	actor->initialize_sprite(paths);
 
 	return actor;
 }

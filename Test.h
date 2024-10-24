@@ -4,13 +4,13 @@
 #include<iostream>
 #include<allegro5/allegro.h>
 
-#include "BaseActor.h"
+#include "AnimatedActor.h"
 #include "InputSystem.h"
 
 #ifndef _TEST_
 #define _TEST_
 
-BaseActor* initialize_test();
+AnimatedActor* initialize_test();
 InputSystem* initialize_input(BaseActor* actor);
 
 #endif // !_TEST_
