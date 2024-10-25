@@ -3,7 +3,6 @@
 *.suo
 *.user
 *.vcxproj.user
-*.filters
 *.ipch
 *.VC.db
 *.VC.VC.opendb

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="animatedActor.cpp">
+      <Filter>Archivos de encabezado\Actors\AnimatedActor</Filter>
+    </ClCompile>
+    <ClCompile Include="baseActor.cpp">
+      <Filter>Archivos de encabezado\Actors\BaseActor</Filter>
+    </ClCompile>
+    <ClCompile Include="complexAnimatedActor.cpp">
+      <Filter>Archivos de encabezado\Actors\ComplexAnimatedActor</Filter>
+    </ClCompile>
+    <ClCompile Include="genericSprite.cpp">
+      <Filter>Archivos de encabezado\Actors\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="inputSystem.hpp">
+      <Filter>Archivos de encabezado\Systems\InputSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="genericSystem.cpp">
+      <Filter>Archivos de encabezado\Systems\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="tickSystem.cpp">
+      <Filter>Archivos de encabezado\Systems\TickSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="allegroInitializer.cpp">
+      <Filter>Archivos de encabezado\Utils\Defs</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Archivos de recursos</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AnimatedActor.h">
+      <Filter>Archivos de encabezado\Actors\AnimatedActor</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseActor.h">
+      <Filter>Archivos de encabezado\Actors\BaseActor</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplexAnimatedActor.h">
+      <Filter>Archivos de encabezado\Actors\ComplexAnimatedActor</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericSprite.h">
+      <Filter>Archivos de encabezado\Actors\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>Archivos de encabezado\Systems\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericSystem.h">
+      <Filter>Archivos de encabezado\Systems\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="TickSystem.h">
+      <Filter>Archivos de encabezado\Systems\TickSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="AllegroInitializer.h">
+      <Filter>Archivos de encabezado\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="JoystickMapping.h">
+      <Filter>Archivos de encabezado\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Archivos de encabezado\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Archivos de encabezado\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Archivos de recursos</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{e472c0fb-f126-4734-b6ef-eb77099f38d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors">
+      <UniqueIdentifier>{0ad0b4fa-a167-4a71-9aad-ec9c590a02fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\BaseActor">
+      <UniqueIdentifier>{aee40e4d-f7f5-49e7-ad84-536f6f5551ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\AnimatedActor">
+      <UniqueIdentifier>{143f7be1-a800-4868-849c-0dcd243fafb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\ComplexAnimatedActor">
+      <UniqueIdentifier>{e7c25977-7334-4b7e-aa24-b5f338def733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\Generic">
+      <UniqueIdentifier>{949cdc10-c177-40a7-b4d6-5758edb38968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems">
+      <UniqueIdentifier>{5618f83a-f89a-4571-bf5c-f5f242cd2cab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\Generic">
+      <UniqueIdentifier>{13b5e80c-2b39-49c8-889a-ab10e7bc0347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem">
+      <UniqueIdentifier>{33d8c055-9a69-41b5-a82a-e2c34c7cb7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\TickSystem">
+      <UniqueIdentifier>{6a4468c2-28d3-4c13-ad64-e2e88d71e51d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Utils">
+      <UniqueIdentifier>{79a5b99e-edfb-4d36-82c8-7c48f8b20a05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Utils\Defs">
+      <UniqueIdentifier>{2f952292-9180-4a4c-9276-7b2529aae88c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{2aabfe34-cd37-4712-821b-0afdbb65cf78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{939befa9-3e9a-4252-baef-133e540e9ca4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

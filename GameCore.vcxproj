@@ -180,9 +180,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="allegroInitializer.cpp" />
     <ClCompile Include="animatedActor.cpp" />
     <ClCompile Include="baseActor.cpp" />
@@ -207,6 +204,9 @@
     <ClInclude Include="Timer.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
