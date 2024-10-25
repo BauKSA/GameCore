@@ -186,9 +186,10 @@
     <ClCompile Include="allegroInitializer.cpp" />
     <ClCompile Include="animatedActor.cpp" />
     <ClCompile Include="baseActor.cpp" />
+    <ClCompile Include="complexAnimatedActor.cpp" />
     <ClCompile Include="genericSprite.cpp" />
     <ClCompile Include="genericSystem.cpp" />
-    <ClCompile Include="inputSystem.cpp" />
+    <ClCompile Include="inputSystem.hpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="tickSystem.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="AllegroInitializer.h" />
     <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="BaseActor.h" />
+    <ClInclude Include="ComplexAnimatedActor.h" />
     <ClInclude Include="GenericSprite.h" />
     <ClInclude Include="GenericSystem.h" />
     <ClInclude Include="JoystickMapping.h" />

@@ -19,6 +19,7 @@ public:
 		frame_time = 0;
 	}
 
+	void initialize_sprite(Animation* animation);
 	void initialize_sprite(std::vector<std::string> animation_paths) override;
 	void tick(float delta_time) override;
 	void update(float delta_time);

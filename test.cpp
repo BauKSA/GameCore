@@ -1,8 +1,10 @@
 #include "Test.h"
 #include "JoystickMapping.h"
 
-AnimatedActor* initialize_test() {
-	std::vector<std::string> paths = {
+ComplexAnimatedActor* initialize_test() {
+	AnimationPaths _default;
+	_default.name = "default";
+	_default.paths = {
 		"./test0.png",
 		"./test1.png",
 		"./test2.png",
@@ -10,8 +12,22 @@ AnimatedActor* initialize_test() {
 		"./test4.png",
 	};
 
-	AnimatedActor* actor = new AnimatedActor("test_actor", 10, 10, .125);
-	actor->initialize_sprite(paths);
+	AnimationPaths left;
+	left.name = "left";
+	left.paths = {
+		"./test4.png",
+		"./test.png",
+	};
+
+	AnimationPaths right;
+	right.name = "right";
+	right.paths = {
+		"./test2.png",
+		"./test.png",
+	};
+
+	ComplexAnimatedActor* actor = new ComplexAnimatedActor("test_actor", 10, 10, .125);
+	actor->initialize_sprite({ _default, left, right });
 
 	return actor;
 }
@@ -31,25 +47,26 @@ static std::vector<Actions> set_actions() {
 	return actions;
 }
 
-InputSystem* initialize_input(BaseActor* actor) {
+InputSystem<ComplexAnimatedActor>* initialize_input(ComplexAnimatedActor* actor) {
 	std::vector<Actions> actions = set_actions();
-	InputSystem* actor_input = new InputSystem(actor, actions, [](std::string action, bool key_pressed, BaseActor* actor) {
+	InputSystem<ComplexAnimatedActor>* actor_input = new InputSystem<ComplexAnimatedActor>(actor, actions,
+		[](std::string action, bool key_pressed, ComplexAnimatedActor* actor) {
 		if (action == "right") {
 			if (key_pressed) {
-				std::cout << "Movemos a la derecha" << std::endl;
 				actor->set_movement(RIGHT, key_pressed);
+				actor->set_animation("right");
 			} else {
-				std::cout << "Dejamos de mover" << std::endl;
 				actor->set_movement(RIGHT, key_pressed);
+				actor->set_animation("default");
 			}
 		} else if (action == "left") {
 			if (key_pressed) {
-				std::cout << "Movemos a la izquierda" << std::endl;
 				actor->set_movement(LEFT, key_pressed);
+				actor->set_animation("left");
 			}
 			else {
-				std::cout << "Dejamos de mover" << std::endl;
 				actor->set_movement(LEFT, key_pressed);
+				actor->set_animation("default");
 			}
 		}
 	});

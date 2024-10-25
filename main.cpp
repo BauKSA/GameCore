@@ -26,8 +26,8 @@ int main(int argc, char** argv) {
     //------------
     //TESTING INIT
     //------------
-    BaseActor* test_player = initialize_test();
-    InputSystem* test_input = initialize_input(test_player);
+    ComplexAnimatedActor* test_player = initialize_test();
+    InputSystem<ComplexAnimatedActor>* test_input = initialize_input(test_player);
 
     al_clear_to_color(al_map_rgb(255, 255, 255));
     test_player->draw();

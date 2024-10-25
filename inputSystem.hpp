@@ -1,3 +1,4 @@
+#pragma once
 #include<allegro5/allegro.h>
 #include<iostream>
 #include<thread>
@@ -6,7 +7,8 @@
 
 #define KEY_TIME 250
 
-void InputSystem::start_listening() {
+template<typename ActorType>
+void InputSystem<ActorType>::start_listening() {
 	if (!al_is_system_installed()) {
 		std::cerr << "Error loading Allegro in actor " << actor->get_name() << std::endl;
 		return;
@@ -29,7 +31,8 @@ void InputSystem::start_listening() {
 	listening = true;
 }
 
-void InputSystem::listen() {
+template<typename ActorType>
+void InputSystem<ActorType>::listen() {
     if (listening) {
 		ALLEGRO_EVENT ev;
 		check_key_queue();
@@ -51,12 +54,14 @@ void InputSystem::listen() {
     }
 }
 
-void InputSystem::stop_listening() {
+template<typename ActorType>
+void InputSystem<ActorType>::stop_listening() {
 	al_destroy_event_queue(queue);
 	listening = false;
 }
 
-void InputSystem::add_key_to_queue(int key) {
+template<typename ActorType>
+void InputSystem<ActorType>::add_key_to_queue(int key) {
 	last_keys.push(key);
 	if (last_keys.size() > 5) last_keys.pop();
 
@@ -64,12 +69,14 @@ void InputSystem::add_key_to_queue(int key) {
 	last_key_pressed = Timer::now();
 }
 
-void InputSystem::check_key_queue() {
+template<typename ActorType>
+void InputSystem<ActorType>::check_key_queue() {
 	int delta_time = Timer::difference(last_key_pressed);
 	if (delta_time > KEY_TIME) reset_keys();
 }
 
-void InputSystem::dispatch(int key, bool key_pressed) {
+template<typename ActorType>
+void InputSystem<ActorType>::dispatch(int key, bool key_pressed) {
 	for (int i = 0; i < actions.size(); i++) {
 		for (int k : actions.at(i).keys) {
 			if (k == key) {
