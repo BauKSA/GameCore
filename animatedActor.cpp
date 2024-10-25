@@ -36,7 +36,6 @@ void AnimatedActor::initialize_sprite(std::vector<std::string> paths) {
 void AnimatedActor::initialize_sprite(Animation* animation) {
 	animated_sprite = animation;
 	sprite = animated_sprite->frames.at(0);
-	std::cout << "animated_sprite size = " << animated_sprite->size << std::endl;
 }
 
 void AnimatedActor::tick(float delta_time) {
