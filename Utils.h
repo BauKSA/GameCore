@@ -8,8 +8,12 @@
 #ifndef _UTILS_
 #define _UTILS_
 
-constexpr int SCREEN_WIDTH = 800;
-constexpr int SCREEN_HEIGHT = 600;
+constexpr float SCREEN_WIDTH = 400;
+constexpr float SCREEN_HEIGHT = 300;
+
+constexpr float WORLD_WIDTH = 1500;
+constexpr float WORLD_HEIGHT = 1500;
+
 constexpr float FRAME_RATE = .25;
 
 enum directions {

@@ -22,7 +22,7 @@
     <ClCompile Include="tickSystem.cpp">
       <Filter>Archivos de encabezado\Systems\TickSystem</Filter>
     </ClCompile>
-    <ClCompile Include="allegroInitializer.cpp">
+    <ClCompile Include="allegroManager.cpp">
       <Filter>Archivos de encabezado\Utils\Defs</Filter>
     </ClCompile>
     <ClCompile Include="test.cpp">
@@ -30,6 +30,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="basicCamera.cpp">
+      <Filter>Archivos de encabezado\Cameras\BasicCamera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,7 +57,7 @@
     <ClInclude Include="TickSystem.h">
       <Filter>Archivos de encabezado\Systems\TickSystem</Filter>
     </ClInclude>
-    <ClInclude Include="AllegroInitializer.h">
+    <ClInclude Include="AllegroManager.h">
       <Filter>Archivos de encabezado\Utils</Filter>
     </ClInclude>
     <ClInclude Include="JoystickMapping.h">
@@ -68,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="Test.h">
       <Filter>Archivos de recursos</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicCamera.h">
+      <Filter>Archivos de encabezado\Cameras\BasicCamera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +121,12 @@
     </Filter>
     <Filter Include="Archivos de recursos">
       <UniqueIdentifier>{939befa9-3e9a-4252-baef-133e540e9ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Cameras">
+      <UniqueIdentifier>{7b158f18-a7f2-483e-ac4f-e3866810e614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Cameras\BasicCamera">
+      <UniqueIdentifier>{e6d24f7f-b484-46da-acf8-fa860fc5f9bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

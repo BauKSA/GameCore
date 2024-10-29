@@ -27,6 +27,8 @@ public:
 
 	float get_x() const { return x; }
 	float get_y() const { return y; }
+	float get_width() const { return sprite->width; }
+	float get_height() const { return sprite->height; }
 	std::string get_name() const { return name; }
 
 	~GenericSprite() {

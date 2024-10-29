@@ -180,9 +180,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="allegroInitializer.cpp" />
+    <ClCompile Include="allegroManager.cpp" />
     <ClCompile Include="animatedActor.cpp" />
     <ClCompile Include="baseActor.cpp" />
+    <ClCompile Include="basicCamera.cpp" />
     <ClCompile Include="complexAnimatedActor.cpp" />
     <ClCompile Include="genericSprite.cpp" />
     <ClCompile Include="genericSystem.cpp" />
@@ -192,9 +193,10 @@
     <ClCompile Include="tickSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllegroInitializer.h" />
+    <ClInclude Include="AllegroManager.h" />
     <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="BaseActor.h" />
+    <ClInclude Include="BasicCamera.h" />
     <ClInclude Include="ComplexAnimatedActor.h" />
     <ClInclude Include="GenericSprite.h" />
     <ClInclude Include="GenericSystem.h" />

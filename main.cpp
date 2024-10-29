@@ -3,20 +3,21 @@
 #include<allegro5/allegro_image.h>
 #include<allegro5/allegro_native_dialog.h>
 
-#include "AllegroInitializer.h"
+#include "AllegroManager.h"
 #include "Utils.h"
 #include "BaseActor.h"
 #include "Timer.h"
 #include "TickSystem.h"
+#include "BasicCamera.h"
 
 #include "Test.h"
 
 int main(int argc, char** argv) {
-    AllegroInitializer* initializer = new AllegroInitializer;
-    initializer->init();
+    AllegroManager* alManager = new AllegroManager;
+    alManager->init();
 
-    if (initializer->failed()) {
-        delete initializer;
+    if (alManager->failed()) {
+        delete alManager;
         return -1;
     }
 
@@ -39,16 +40,30 @@ int main(int argc, char** argv) {
     //TESTING  END
     //------------
 
+    //Camera
+    BasicCamera* camera = new BasicCamera("default", test_player, 1);
+
+    //Systems
     TickSystem* tick_system = new TickSystem();
     tick_system->add_actor(test_player);
+    tick_system->set_camera(camera);
+
+    ALLEGRO_BITMAP* background = al_load_bitmap("./background-test.png");
+    ALLEGRO_BITMAP* screen = al_create_bitmap(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     while (running) {
+        al_set_target_bitmap(screen);
+        al_clear_to_color(al_map_rgb(0, 0, 0));
+        al_draw_bitmap(background, 0, 0, NULL);
+
         float current_time = al_get_time();
         float delta_time = current_time - last_frame_time;
         last_frame_time = current_time;
 
         test_input->listen();
         tick_system->update(delta_time);
+
+        alManager->draw_to_display(screen);
     }
 
     return 0;
