@@ -9,6 +9,7 @@
 #include "Timer.h"
 #include "TickSystem.h"
 #include "BasicCamera.h"
+#include "GravityComponent.h"
 
 #include "Test.h"
 
@@ -43,10 +44,16 @@ int main(int argc, char** argv) {
     //Camera
     BasicCamera* camera = new BasicCamera("default", test_player, 1);
 
+    //Components
+    GravityComponent* gravity_component = new GravityComponent();
+    gravity_component->add_actor(test_player);
+
     //Systems
     TickSystem* tick_system = new TickSystem();
     tick_system->add_actor(test_player);
+    tick_system->add_component(gravity_component);
     tick_system->set_camera(camera);
+
 
     ALLEGRO_BITMAP* background = al_load_bitmap("./background-test.png");
     ALLEGRO_BITMAP* screen = al_create_bitmap(SCREEN_WIDTH, SCREEN_HEIGHT);

@@ -2,19 +2,23 @@
 
 #include "BaseActor.h"
 
+void BaseActor::add_system(GenericSystem* system) {
+	systems.push_back(system);
+}
+
 void BaseActor::move(directions dir) {
 	switch (dir) {
 	case UP:
-		y -= speed;
+		y -= vspeed;
 		break;
 	case DOWN:
-		y += speed;
+		y += vspeed;
 		break;
 	case RIGHT:
-		x += speed;
+		x += hspeed;
 		break;
 	case LEFT:
-		x -= speed;
+		x -= hspeed;
 		break;
 	default:
 		std::cerr << "Error moving actor " << name;
@@ -43,6 +47,10 @@ void BaseActor::set_movement(directions dir, bool key_pressed) {
 }
 
 void BaseActor::tick() {
+	for (size_t i = 0; i < systems.size(); i++) {
+		systems.at(i)->update();
+	}
+
 	if (mup && !mdown) {
 		move(UP);
 	}

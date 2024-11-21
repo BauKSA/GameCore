@@ -1,3 +1,7 @@
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_image.h>
+#include <allegro5/allegro_primitives.h>
+
 #include "AllegroManager.h"
 #include "Utils.h"
 
@@ -23,6 +27,8 @@ void AllegroManager::init() {
     create_display();
     start_timer();
     create_queue();
+
+    al_set_new_bitmap_flags(ALLEGRO_NO_PRESERVE_TEXTURE);
 }
 
 void AllegroManager::init_addons() {

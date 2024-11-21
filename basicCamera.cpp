@@ -7,7 +7,7 @@
 
 void BasicCamera::set_actor_position() {
 	x = actor->get_x() - MARGIN;
-	y = 0;
+	y = actor->get_y() - MARGIN;
 
 	if (x < 0) x = 0;
 	if (x + SCREEN_WIDTH > WORLD_WIDTH) x = WORLD_WIDTH - SCREEN_WIDTH;
