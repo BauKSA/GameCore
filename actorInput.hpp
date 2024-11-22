@@ -1,14 +1,8 @@
 #pragma once
-#include<allegro5/allegro.h>
-#include<iostream>
-#include<thread>
-
-#include "InputSystem.h"
-
-#define KEY_TIME 250
+#include "ActorInput.h"
 
 template<typename ActorType>
-void InputSystem<ActorType>::start_listening() {
+void ActorInput<ActorType>::start_listening() {
 	if (!al_is_system_installed()) {
 		std::cerr << "Error loading Allegro in actor " << actor->get_name() << std::endl;
 		return;
@@ -32,8 +26,8 @@ void InputSystem<ActorType>::start_listening() {
 }
 
 template<typename ActorType>
-void InputSystem<ActorType>::listen() {
-    if (listening) {
+void ActorInput<ActorType>::listen() {
+	if (listening) {
 		ALLEGRO_EVENT ev;
 		check_key_queue();
 
@@ -41,42 +35,30 @@ void InputSystem<ActorType>::listen() {
 			if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
 				add_key_to_queue(ev.keyboard.keycode);
 				return dispatch(ev.keyboard.keycode, true);
-			} else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
+			}
+			else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
 				return dispatch(ev.keyboard.keycode, false);
-			} else if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN) {
+			}
+			else if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN) {
 				add_key_to_queue(ev.joystick.button);
 				return dispatch(ev.joystick.button, true);
-			} else if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_UP) {
+			}
+			else if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_UP) {
 				return dispatch(ev.joystick.button, false);
 			}
 
 		}
-    }
+	}
 }
 
 template<typename ActorType>
-void InputSystem<ActorType>::stop_listening() {
+void ActorInput<ActorType>::stop_listening() {
 	al_destroy_event_queue(queue);
 	listening = false;
 }
 
 template<typename ActorType>
-void InputSystem<ActorType>::add_key_to_queue(int key) {
-	last_keys.push(key);
-	if (last_keys.size() > 5) last_keys.pop();
-
-	pressed_key = key;
-	last_key_pressed = Timer::now();
-}
-
-template<typename ActorType>
-void InputSystem<ActorType>::check_key_queue() {
-	int delta_time = Timer::difference(last_key_pressed);
-	if (delta_time > KEY_TIME) reset_keys();
-}
-
-template<typename ActorType>
-void InputSystem<ActorType>::dispatch(int key, bool key_pressed) {
+void ActorInput<ActorType>::dispatch(int key, bool key_pressed) {
 	for (int i = 0; i < actions.size(); i++) {
 		for (int k : actions.at(i).keys) {
 			if (k == key) {

@@ -13,9 +13,6 @@
     <ClCompile Include="genericSprite.cpp">
       <Filter>Archivos de encabezado\Actors\Generic</Filter>
     </ClCompile>
-    <ClCompile Include="inputSystem.hpp">
-      <Filter>Archivos de encabezado\Systems\InputSystem</Filter>
-    </ClCompile>
     <ClCompile Include="genericSystem.cpp">
       <Filter>Archivos de encabezado\Systems\Generic</Filter>
     </ClCompile>
@@ -40,6 +37,12 @@
     <ClCompile Include="genericComponent.cpp">
       <Filter>Archivos de encabezado\Components\GenericComponent</Filter>
     </ClCompile>
+    <ClCompile Include="genericInput.cpp">
+      <Filter>Archivos de encabezado\Systems\InputSystem\Generic</Filter>
+    </ClCompile>
+    <ClCompile Include="globalInput.cpp">
+      <Filter>Archivos de encabezado\Systems\InputSystem\Global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedActor.h">
@@ -53,9 +56,6 @@
     </ClInclude>
     <ClInclude Include="GenericSprite.h">
       <Filter>Archivos de encabezado\Actors\Generic</Filter>
-    </ClInclude>
-    <ClInclude Include="InputSystem.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem</Filter>
     </ClInclude>
     <ClInclude Include="GenericSystem.h">
       <Filter>Archivos de encabezado\Systems\Generic</Filter>
@@ -86,6 +86,18 @@
     </ClInclude>
     <ClInclude Include="GravityComponent.h">
       <Filter>Archivos de encabezado\Components\GravityComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericInput.h">
+      <Filter>Archivos de encabezado\Systems\InputSystem\Generic</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorInput.h">
+      <Filter>Archivos de encabezado\Systems\InputSystem\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="actorInput.hpp">
+      <Filter>Archivos de encabezado\Systems\InputSystem\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalInput.h">
+      <Filter>Archivos de encabezado\Systems\InputSystem\Global</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +160,15 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Components\GenericComponent">
       <UniqueIdentifier>{d689e97d-3393-4a19-8ba6-d734817c3b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Generic">
+      <UniqueIdentifier>{f59ef685-7a7f-492c-b0ee-e8dc87c8e15d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Actor">
+      <UniqueIdentifier>{5a9a8d72-9c5f-4df4-9c1d-b33ad4ecc392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Global">
+      <UniqueIdentifier>{b65e189f-bcf9-4fc4-9dc6-54904421aea8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

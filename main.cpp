@@ -25,11 +25,14 @@ int main(int argc, char** argv) {
     float last_frame_time = al_get_time();
     bool running = true;
 
+    GlobalInput* global_input = initialize_global_input(running);
+    global_input->start_listening();
+
     //------------
     //TESTING INIT
     //------------
     ComplexAnimatedActor* test_player = initialize_test();
-    InputSystem<ComplexAnimatedActor>* test_input = initialize_input(test_player);
+    ActorInput<ComplexAnimatedActor>* test_input = initialize_input(test_player);
 
     al_clear_to_color(al_map_rgb(255, 255, 255));
     test_player->draw();
@@ -46,7 +49,7 @@ int main(int argc, char** argv) {
 
     //Components
     GravityComponent* gravity_component = new GravityComponent();
-    gravity_component->add_actor(test_player);
+    //gravity_component->add_actor(test_player);
 
     //Systems
     TickSystem* tick_system = new TickSystem();
@@ -68,6 +71,7 @@ int main(int argc, char** argv) {
         last_frame_time = current_time;
 
         test_input->listen();
+        global_input->listen();
         tick_system->update(delta_time);
 
         alManager->draw_to_display(screen);

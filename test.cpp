@@ -47,9 +47,18 @@ static std::vector<Actions> set_actions() {
 	return actions;
 }
 
-InputSystem<ComplexAnimatedActor>* initialize_input(ComplexAnimatedActor* actor) {
+static std::vector<Actions> set_global_actions() {
+	std::vector<Actions> actions;
+	Actions esc = Actions{ {ALLEGRO_KEY_ESCAPE,}, "close" };
+
+	actions.push_back(esc);
+
+	return actions;
+}
+
+ActorInput<ComplexAnimatedActor>* initialize_input(ComplexAnimatedActor* actor) {
 	std::vector<Actions> actions = set_actions();
-	InputSystem<ComplexAnimatedActor>* actor_input = new InputSystem<ComplexAnimatedActor>(actor, actions,
+	ActorInput<ComplexAnimatedActor>* actor_input = new ActorInput<ComplexAnimatedActor>(actor, actions,
 		[](std::string action, bool key_pressed, ComplexAnimatedActor* actor) {
 		if (action == "right") {
 			if (key_pressed) {
@@ -72,4 +81,16 @@ InputSystem<ComplexAnimatedActor>* initialize_input(ComplexAnimatedActor* actor)
 	});
 
 	return actor_input;
+}
+
+GlobalInput* initialize_global_input(bool &running) {
+	std::vector<Actions> actions = set_global_actions();
+	GlobalInput* global_input = new GlobalInput(actions,
+		[&running](std::string action, bool key_pressed) {
+			if (action == "close") {
+				running = false;
+			}
+		});
+
+	return global_input;
 }
