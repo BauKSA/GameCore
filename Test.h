@@ -5,14 +5,15 @@
 #include<allegro5/allegro.h>
 
 #include "ComplexAnimatedActor.h"
-#include "ActorInput.h"
-#include "GlobalInput.h"
+#include "InputSystem.h"
+#include "InputDriver.h"
+#include "MoveCommands.h"
+#include "CloseCommand.h"
 
 #ifndef _TEST_
 #define _TEST_
 
 ComplexAnimatedActor* initialize_test();
-ActorInput<ComplexAnimatedActor>* initialize_input(ComplexAnimatedActor* actor);
-GlobalInput* initialize_global_input(bool& running);
+InputSystem* initialize_input();
 
 #endif // !_TEST_

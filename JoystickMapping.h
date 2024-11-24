@@ -7,4 +7,6 @@
 #define JOY_BUTTON_RIGHT 10
 #define JOY_BUTTON_LEFT 11
 
+#define JOY_BUTTON_START 9
+
 #endif // !_JOYSTICKMAPPING_

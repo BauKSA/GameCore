@@ -188,31 +188,34 @@
     <ClCompile Include="genericComponent.cpp" />
     <ClCompile Include="genericSprite.cpp" />
     <ClCompile Include="genericSystem.cpp" />
-    <ClCompile Include="globalInput.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
-    <ClCompile Include="genericInput.cpp" />
+    <ClCompile Include="inputDriver.cpp" />
+    <ClCompile Include="inputSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="moveCommands.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="tickSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ActorInput.h" />
-    <ClInclude Include="actorInput.hpp" />
     <ClInclude Include="AllegroManager.h" />
     <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="BaseActor.h" />
     <ClInclude Include="BasicCamera.h" />
+    <ClInclude Include="CloseCommand.h" />
     <ClInclude Include="ComplexAnimatedActor.h" />
+    <ClInclude Include="GenericCommand.h" />
     <ClInclude Include="GenericComponent.h" />
     <ClInclude Include="GenericSprite.h" />
     <ClInclude Include="GenericSystem.h" />
-    <ClInclude Include="GlobalInput.h" />
     <ClInclude Include="GravityComponent.h" />
+    <ClInclude Include="InputDriver.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="JoystickMapping.h" />
+    <ClInclude Include="MoveCommands.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="TickSystem.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="GenericInput.h" />
+    <ClInclude Include="InputSystem.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

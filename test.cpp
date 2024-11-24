@@ -32,65 +32,23 @@ ComplexAnimatedActor* initialize_test() {
 	return actor;
 }
 
-static std::vector<Actions> set_actions() {
-	std::vector<Actions> actions;
-	Actions up = Actions{ {ALLEGRO_KEY_W, JOY_BUTTON_UP}, "up" };
-	Actions down = Actions{ {ALLEGRO_KEY_S, JOY_BUTTON_DOWN}, "down" };
-	Actions right = Actions{ {ALLEGRO_KEY_D, JOY_BUTTON_RIGHT}, "right" };
-	Actions left = Actions{ {ALLEGRO_KEY_A, JOY_BUTTON_LEFT}, "left" };
+InputSystem* initialize_input() {
+	MoveRightCommand* move_right = new MoveRightCommand();
+	MoveLeftCommand* move_left = new MoveLeftCommand();
+	StandRightCommand* stand_right = new StandRightCommand();
+	StandLeftCommand* stand_left = new StandLeftCommand();
+	CloseCommand* _close = new CloseCommand();
 
-	actions.push_back(up);
-	actions.push_back(down);
-	actions.push_back(right);
-	actions.push_back(left);
+	KeyCommand right(JOY_BUTTON_RIGHT, true, move_right);
+	KeyCommand left(JOY_BUTTON_LEFT, true, move_left);
+	KeyCommand sright(JOY_BUTTON_RIGHT, false, stand_right);
+	KeyCommand sleft(JOY_BUTTON_LEFT, false, stand_left);
+	KeyCommand close(JOY_BUTTON_START, true, _close);
 
-	return actions;
-}
+	std::vector<KeyCommand> commands{ right, left, sright, sleft, close };
 
-static std::vector<Actions> set_global_actions() {
-	std::vector<Actions> actions;
-	Actions esc = Actions{ {ALLEGRO_KEY_ESCAPE,}, "close" };
+	InputDriver* driver = new InputDriver(commands);
+	InputSystem* test_input = new InputSystem(driver);
 
-	actions.push_back(esc);
-
-	return actions;
-}
-
-ActorInput<ComplexAnimatedActor>* initialize_input(ComplexAnimatedActor* actor) {
-	std::vector<Actions> actions = set_actions();
-	ActorInput<ComplexAnimatedActor>* actor_input = new ActorInput<ComplexAnimatedActor>(actor, actions,
-		[](std::string action, bool key_pressed, ComplexAnimatedActor* actor) {
-		if (action == "right") {
-			if (key_pressed) {
-				actor->set_movement(RIGHT, key_pressed);
-				actor->set_animation("right");
-			} else {
-				actor->set_movement(RIGHT, key_pressed);
-				actor->set_animation("default");
-			}
-		} else if (action == "left") {
-			if (key_pressed) {
-				actor->set_movement(LEFT, key_pressed);
-				actor->set_animation("left");
-			}
-			else {
-				actor->set_movement(LEFT, key_pressed);
-				actor->set_animation("default");
-			}
-		}
-	});
-
-	return actor_input;
-}
-
-GlobalInput* initialize_global_input(bool &running) {
-	std::vector<Actions> actions = set_global_actions();
-	GlobalInput* global_input = new GlobalInput(actions,
-		[&running](std::string action, bool key_pressed) {
-			if (action == "close") {
-				running = false;
-			}
-		});
-
-	return global_input;
+	return test_input;
 }

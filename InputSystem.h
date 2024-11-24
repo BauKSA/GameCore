@@ -5,35 +5,37 @@
 
 #include "Timer.h"
 #include "BaseActor.h"
+#include "InputDriver.h"
 
-#ifndef _GENERICINPUT_
-#define _GENERICINPUT_
+#ifndef _INPUTSYSTEM_
+#define _INPUTSYSTEM_
 
-
-struct Actions {
-	std::vector<int> keys;
-	std::string action;
-};
-
-class GenericInput {
+class InputSystem {
 protected:
 	std::queue<int> last_keys;
 	int pressed_key;
 	bool listening;
 	std::chrono::time_point<std::chrono::steady_clock> last_key_pressed;
-
 	ALLEGRO_EVENT_QUEUE* queue;
+	InputDriver* driver;
 public:
-	GenericInput() : listening(false), pressed_key(-1), last_key_pressed(Timer::now()), queue(nullptr) {}
+	InputSystem(InputDriver* _driver) :
+		listening(false),
+		pressed_key(-1),
+		last_key_pressed(Timer::now()),
+		queue(nullptr),
+		driver(_driver) {
+	}
+
+	void start_listening();
+	void stop_listening();
 
 	void reset_keys() { last_keys = std::queue<int>(); }
 
-	virtual void start_listening() {};
-	virtual void listen() {};
-	virtual void stop_listening() {};
+	GenericCommand* listen();
 
 	void add_key_to_queue(int key);
 	void check_key_queue();
 };
 
-#endif // !_GENERICINPUT_
+#endif // !_INPUTSYSTEM_
