@@ -1,25 +1,25 @@
 #pragma once
-#include "GenericCommand.h"
+#include "ActorCommand.h"
 
 #ifndef _MOVECOMMANDS_
 #define _MOVECOMMANDS_
 
-class MoveRightCommand : public GenericCommand {
+class MoveRightCommand : public ActorCommand {
 public:
 	virtual void execute(ComplexAnimatedActor& actor) override;
 };
 
-class MoveLeftCommand : public GenericCommand {
+class MoveLeftCommand : public ActorCommand {
 public:
 	virtual void execute(ComplexAnimatedActor& actor) override;
 };
 
-class StandRightCommand : public GenericCommand {
+class StandRightCommand : public ActorCommand {
 public:
 	virtual void execute(ComplexAnimatedActor& actor) override;
 };
 
-class StandLeftCommand : public GenericCommand {
+class StandLeftCommand : public ActorCommand {
 public:
 	virtual void execute(ComplexAnimatedActor& actor) override;
 };

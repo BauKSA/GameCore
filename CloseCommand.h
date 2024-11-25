@@ -1,10 +1,10 @@
 #pragma once
-#include "GenericCommand.h"
+#include "GlobalCommand.h"
 
 #ifndef _CLOSECOMMAND_
 #define _CLOSECOMMAND_
 
-class CloseCommand :public GenericCommand {
+class CloseCommand :public GlobalCommand {
 public:
 	virtual void execute(bool& running) override {
 		running = false;

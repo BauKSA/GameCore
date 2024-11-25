@@ -8,7 +8,6 @@
 class GenericCommand {
 public:
 	virtual void execute() {};
-	virtual void execute(BaseActor& actor) {};
 	virtual void execute(ComplexAnimatedActor& actor) {};
 	virtual void execute(bool& running) {};
 };

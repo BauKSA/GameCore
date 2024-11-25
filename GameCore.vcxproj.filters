@@ -38,13 +38,16 @@
       <Filter>Archivos de encabezado\Components\GenericComponent</Filter>
     </ClCompile>
     <ClCompile Include="moveCommands.cpp">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\MoveCommands</Filter>
+      <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands</Filter>
     </ClCompile>
     <ClCompile Include="inputSystem.cpp">
       <Filter>Archivos de encabezado\Systems\Input\System</Filter>
     </ClCompile>
     <ClCompile Include="inputDriver.cpp">
       <Filter>Archivos de encabezado\Systems\Input\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="inputHandler.cpp">
+      <Filter>Archivos de encabezado\Systems\Input\Handler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +97,7 @@
       <Filter>Archivos de encabezado\Systems\Input\Commands\GenericCommand</Filter>
     </ClInclude>
     <ClInclude Include="MoveCommands.h">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\MoveCommands</Filter>
+      <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands</Filter>
     </ClInclude>
     <ClInclude Include="InputSystem.h">
       <Filter>Archivos de encabezado\Systems\Input\System</Filter>
@@ -105,8 +108,14 @@
     <ClInclude Include="InputHandler.h">
       <Filter>Archivos de encabezado\Systems\Input\Handler</Filter>
     </ClInclude>
+    <ClInclude Include="ActorCommand.h">
+      <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalCommand.h">
+      <Filter>Archivos de encabezado\Systems\Input\Commands\GlobalCommands</Filter>
+    </ClInclude>
     <ClInclude Include="CloseCommand.h">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\GenericCommand</Filter>
+      <Filter>Archivos de encabezado\Systems\Input\Commands\GlobalCommands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +185,6 @@
     <Filter Include="Archivos de encabezado\Systems\Input\Commands\GenericCommand">
       <UniqueIdentifier>{b44d2a85-9e3d-459f-a901-4e7fe017538a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Commands\MoveCommands">
-      <UniqueIdentifier>{a46ed297-375d-46b3-b154-bbd98f05651e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Systems\Input\System">
       <UniqueIdentifier>{d9cae08d-b5a3-4487-a32a-00660231de50}</UniqueIdentifier>
     </Filter>
@@ -187,6 +193,15 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Systems\Input\Handler">
       <UniqueIdentifier>{3f287f80-5db4-403e-9901-a163d49f7970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\Input\Commands\ActorCommands">
+      <UniqueIdentifier>{7cbc27a5-fe10-4a32-aeb2-fdb66091d09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands">
+      <UniqueIdentifier>{a46ed297-375d-46b3-b154-bbd98f05651e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\Input\Commands\GlobalCommands">
+      <UniqueIdentifier>{fadaddae-363e-479e-949a-d23b44c4950a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

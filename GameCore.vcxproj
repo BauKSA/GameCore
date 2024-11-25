@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{a4bad35f-7fe9-44cf-bd2e-0837f572527e}</ProjectGuid>
     <RootNamespace>Metroid</RootNamespace>
@@ -129,6 +128,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,6 +143,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,6 +158,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,6 +173,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,6 +193,7 @@
     <ClCompile Include="genericSystem.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="inputDriver.cpp" />
+    <ClCompile Include="inputHandler.cpp" />
     <ClCompile Include="inputSystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="moveCommands.cpp" />
@@ -197,6 +201,7 @@
     <ClCompile Include="tickSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActorCommand.h" />
     <ClInclude Include="AllegroManager.h" />
     <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="BaseActor.h" />
@@ -207,6 +212,7 @@
     <ClInclude Include="GenericComponent.h" />
     <ClInclude Include="GenericSprite.h" />
     <ClInclude Include="GenericSystem.h" />
+    <ClInclude Include="GlobalCommand.h" />
     <ClInclude Include="GravityComponent.h" />
     <ClInclude Include="InputDriver.h" />
     <ClInclude Include="InputHandler.h" />

@@ -61,6 +61,7 @@ int main(int argc, char** argv) {
 	ALLEGRO_BITMAP* screen = al_create_bitmap(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	GenericCommand* command{};
+	InputHandler* handler = new InputHandler(test_player, &running);
 
 	while (running) {
 		al_set_target_bitmap(screen);
@@ -72,7 +73,7 @@ int main(int argc, char** argv) {
 		last_frame_time = current_time;
 
 		command = test_input->listen();
-		if (command) { InputHandler<ComplexAnimatedActor>::execute(command, *test_player); }
+		if (command) handler->check(command);
 
 		tick_system->update(delta_time);
 

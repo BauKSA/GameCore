@@ -1,14 +1,26 @@
 #pragma once
-#include "GenericCommand.h"
+#include<variant>
+
+#include "ComplexAnimatedActor.h"
+#include "ActorCommand.h"
+#include "GlobalCommand.h"
 
 #ifndef _INPUTHANDLER_
 #define _INPUTHANDLER_
 
-template <typename T>
 class InputHandler {
+private:
+	ComplexAnimatedActor* player;
+	bool* running;
 public:
-	static void execute(GenericCommand* command, T& actor) {
-		command->execute(actor);
+	InputHandler(ComplexAnimatedActor* _player, bool* _running) :
+		player(_player), running(_running) {
+	};
+
+	void check(GenericCommand* command);
+
+	void execute(GenericCommand* command, std::variant<ComplexAnimatedActor*, bool*> actor_receiver) {
+		std::visit([&](auto&& arg) { command->execute(*arg); }, actor_receiver);
 	}
 };
 
