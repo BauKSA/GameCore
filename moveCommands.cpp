@@ -19,3 +19,8 @@ void StandLeftCommand::execute(ComplexAnimatedActor& actor) {
 	actor.set_movement(LEFT, false);
 	actor.set_animation("default");
 }
+
+void JumpCommand::execute(ComplexAnimatedActor& actor) {
+	actor.jump();
+	actor.set_animation("default");
+}

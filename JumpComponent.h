@@ -2,18 +2,18 @@
 #include "GenericComponent.h"
 #include "BaseActor.h"
 
-#ifndef _GRAVITYCOMPONENT_
-#define _GRAVITYCOMPONENT_
+#ifndef _JUMPCOMPONENT_
+#define _JUMPCOMPONENT_
 
-class GravityComponent : public GenericComponent {
+class JumpComponent : public GenericComponent {
 protected:
 	const float GRAVITY;
 public:
-	GravityComponent(float _GRAVITY = 9.8f) :
+	JumpComponent(float _GRAVITY = 9.8f) :
 		GRAVITY(_GRAVITY) {
 	}
 
 	void tick(float delta_time) override;
 };
 
-#endif // !_GRAVITYCOMPONENT_
+#endif // !_JUMPCOMPONENT_

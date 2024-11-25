@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cmath>
 
 #include "BaseActor.h"
 
@@ -9,16 +10,16 @@ void BaseActor::add_system(GenericSystem* system) {
 void BaseActor::move(directions dir) {
 	switch (dir) {
 	case UP:
-		y -= vspeed;
+		y -= std::abs(vspeed);
 		break;
 	case DOWN:
-		y += vspeed;
+		y += std::abs(vspeed);
 		break;
 	case RIGHT:
-		x += hspeed;
+		x += std::abs(hspeed);
 		break;
 	case LEFT:
-		x -= hspeed;
+		x -= std::abs(hspeed);
 		break;
 	default:
 		std::cerr << "Error moving actor " << name;
@@ -28,12 +29,6 @@ void BaseActor::move(directions dir) {
 
 void BaseActor::set_movement(directions dir, bool key_pressed) {
 	switch (dir) {
-	case UP:
-		mup = key_pressed;
-		break;
-	case DOWN:
-		mdown = key_pressed;
-		break;
 	case RIGHT:
 		mright = key_pressed;
 		break;
@@ -46,7 +41,8 @@ void BaseActor::set_movement(directions dir, bool key_pressed) {
 	}
 }
 
-void BaseActor::tick() {
+void BaseActor::tick(float delta_time) {
+	check_collision();
 	for (size_t i = 0; i < systems.size(); i++) {
 		systems.at(i)->update();
 	}
@@ -66,4 +62,10 @@ void BaseActor::tick() {
 	if (mleft && !mright) {
 		move(LEFT);
 	}
+}
+
+void BaseActor::jump() {
+	if (jumping) return;
+	set_vspeed(JUMP);
+	jumping = true;
 }

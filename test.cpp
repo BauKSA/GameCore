@@ -38,14 +38,16 @@ InputSystem* initialize_input() {
 	StandRightCommand* stand_right = new StandRightCommand();
 	StandLeftCommand* stand_left = new StandLeftCommand();
 	CloseCommand* _close = new CloseCommand();
+	JumpCommand* _jump = new JumpCommand();
 
 	KeyCommand right(JOY_BUTTON_RIGHT, true, move_right);
 	KeyCommand left(JOY_BUTTON_LEFT, true, move_left);
 	KeyCommand sright(JOY_BUTTON_RIGHT, false, stand_right);
 	KeyCommand sleft(JOY_BUTTON_LEFT, false, stand_left);
 	KeyCommand close(JOY_BUTTON_START, true, _close);
+	KeyCommand jump(JOY_BUTTON_A, true, _jump);
 
-	std::vector<KeyCommand> commands{ right, left, sright, sleft, close };
+	std::vector<KeyCommand> commands{ right, left, sright, sleft, close, jump };
 
 	InputDriver* driver = new InputDriver(commands);
 	InputSystem* test_input = new InputSystem(driver);

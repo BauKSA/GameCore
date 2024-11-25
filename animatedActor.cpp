@@ -39,7 +39,7 @@ void AnimatedActor::initialize_sprite(Animation* animation) {
 }
 
 void AnimatedActor::tick(float delta_time) {
-	BaseActor::tick();
+	BaseActor::tick(delta_time);
 	update(delta_time);
 }
 

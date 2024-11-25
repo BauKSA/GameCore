@@ -24,4 +24,9 @@ public:
 	virtual void execute(ComplexAnimatedActor& actor) override;
 };
 
+class JumpCommand : public ActorCommand {
+public:
+	virtual void execute(ComplexAnimatedActor& actor) override;
+};
+
 #endif // !_MOVECOMMANDS_

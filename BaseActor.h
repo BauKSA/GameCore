@@ -11,7 +11,7 @@
 #ifndef _BASEACTOR_
 #define _BASEACTOR_
 
-class BaseActor: public GenericSprite {
+class BaseActor : public GenericSprite {
 protected:
 	float ispeed;
 	float hspeed;
@@ -21,13 +21,17 @@ protected:
 	bool mright;
 	bool mleft;
 	std::vector<GenericSystem*> systems;
+	bool gravity;
+	bool jumping;
 public:
 	BaseActor(std::string name, float x, float y, float speed) :
-		GenericSprite(name, x, y), hspeed(speed), vspeed(speed), ispeed(speed) {
+		GenericSprite(name, x, y), hspeed(speed), vspeed(0), ispeed(speed) {
 		mup = false;
 		mdown = false;
 		mright = false;
 		mleft = false;
+		gravity = false;
+		jumping = false;
 		systems = {};
 	};
 
@@ -37,10 +41,11 @@ public:
 	void move(directions dir);
 	void set_movement(directions dir, bool key_pressed = true);
 	void add_system(GenericSystem* system);
+	void jump();
 
 	//Virtuals
-	virtual void tick();
-	virtual void tick(float delta_time) { tick(); };
+
+	virtual void tick(float delta_time);
 
 	//Declared
 	void reset_hspeed() { hspeed = ispeed; };
@@ -48,6 +53,18 @@ public:
 	void set_vspeed(float speed) { vspeed = speed; };
 	float get_vspeed()const { return vspeed; };
 	float get_ispeed()const { return ispeed; };
+	void enable_gravity() { gravity = true; };
+	void disable_gravity() { gravity = false; };
+	bool get_gravity()const { return gravity; };
+
+	//TEST COLISIÓN HARDCODEADO
+	void check_collision() {
+		if (y >= SCREEN_HEIGHT - 100 && jumping) {
+			y = SCREEN_HEIGHT - 100;
+			jumping = false;
+			disable_gravity();
+		}
+	}
 };
 
 #endif // !_BASEACTOR_

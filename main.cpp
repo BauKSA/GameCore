@@ -14,6 +14,7 @@
 #include "InputSystem.h"
 #include "GenericCommand.h"
 #include "InputHandler.h"
+#include "JumpComponent.h"
 
 #include "Test.h"
 
@@ -48,12 +49,16 @@ int main(int argc, char** argv) {
 
 	//Components
 	GravityComponent* gravity_component = new GravityComponent();
-	//gravity_component->add_actor(test_player);
+	gravity_component->add_actor(test_player);
+
+	JumpComponent* jump_component = new JumpComponent();
+	jump_component->add_actor(test_player);
 
 	//Systems
 	TickSystem* tick_system = new TickSystem();
 	tick_system->add_actor(test_player);
 	tick_system->add_component(gravity_component);
+	tick_system->add_component(jump_component);
 	tick_system->set_camera(camera);
 
 
@@ -70,6 +75,7 @@ int main(int argc, char** argv) {
 
 		float current_time = al_get_time();
 		float delta_time = current_time - last_frame_time;
+		delta_time = std::min(delta_time, 0.033f);
 		last_frame_time = current_time;
 
 		command = test_input->listen();
