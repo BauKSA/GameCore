@@ -44,7 +44,6 @@ public:
 	void jump();
 
 	//Virtuals
-
 	virtual void tick(float delta_time);
 
 	//Declared
@@ -62,6 +61,7 @@ public:
 		if (y >= SCREEN_HEIGHT - 100 && jumping) {
 			y = SCREEN_HEIGHT - 100;
 			jumping = false;
+			vspeed = 0;
 			disable_gravity();
 		}
 	}

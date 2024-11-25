@@ -26,7 +26,7 @@ ComplexAnimatedActor* initialize_test() {
 		"./test.png",
 	};
 
-	ComplexAnimatedActor* actor = new ComplexAnimatedActor("test_actor", 50, SCREEN_HEIGHT - 100, .125);
+	ComplexAnimatedActor* actor = new ComplexAnimatedActor("test_actor", 50, SCREEN_HEIGHT - 100, 2.125);
 	actor->initialize_sprite({ _default, left, right });
 
 	return actor;

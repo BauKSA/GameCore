@@ -75,7 +75,16 @@ int main(int argc, char** argv) {
 
 		float current_time = al_get_time();
 		float delta_time = current_time - last_frame_time;
-		delta_time = std::min(delta_time, 0.033f);
+
+		// Debug: detectar fluctuaciones altas o bajas en delta_time
+		if (delta_time > 0.1f) {
+			std::cerr << "[WARNING] delta_time alto detectado: " << delta_time << " segundos. Posible freeze o lag." << std::endl;
+		}
+		else if (delta_time < 0.0001f) {
+			std::cerr << "[WARNING] delta_time extremadamente bajo: " << delta_time << " segundos. Posible error de cálculo." << std::endl;
+		}
+
+		delta_time = std::min(delta_time, 0.066f);
 		last_frame_time = current_time;
 
 		command = test_input->listen();
@@ -84,6 +93,12 @@ int main(int argc, char** argv) {
 		tick_system->update(delta_time);
 
 		alManager->draw_to_display(screen);
+
+		// Asegurar que el frame rate no exceda un máximo (ejemplo: 60 FPS)
+		float frame_time = al_get_time() - current_time;
+		if (frame_time < (1.0f / 60.0f)) {
+			al_rest((1.0f / 60.0f) - frame_time);  // Pausa para limitar a 60 FPS
+		}
 	}
 
 	test_input->stop_listening();

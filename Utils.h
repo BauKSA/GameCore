@@ -14,9 +14,9 @@ constexpr float SCREEN_HEIGHT = 300;
 constexpr float WORLD_WIDTH = 1500;
 constexpr float WORLD_HEIGHT = 1500;
 
-constexpr float FRAME_RATE = .25;
+constexpr float FRAME_RATE = .15;
 
-constexpr float JUMP = 2;
+constexpr float JUMP = 3.5;
 
 enum directions {
 	UP = 1,
