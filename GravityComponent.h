@@ -13,7 +13,7 @@ public:
 		GRAVITY(_GRAVITY) {
 	}
 
-	void tick(float delta_time) override;
+	void tick(float delta_time, BaseActor& acotr) override;
 };
 
 #endif // !_GRAVITYCOMPONENT_

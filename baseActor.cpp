@@ -7,6 +7,10 @@ void BaseActor::add_system(GenericSystem* system) {
 	systems.push_back(system);
 }
 
+void BaseActor::add_component(GenericComponent* component) {
+	components.push_back(component);
+}
+
 void BaseActor::move(directions dir) {
 	switch (dir) {
 	case UP:
@@ -42,9 +46,12 @@ void BaseActor::set_movement(directions dir, bool key_pressed) {
 }
 
 void BaseActor::tick(float delta_time) {
-	check_collision();
 	for (size_t i = 0; i < systems.size(); i++) {
 		systems.at(i)->update();
+	}
+
+	for (size_t i = 0; i < components.size(); i++) {
+		components.at(i)->tick(delta_time, *this);
 	}
 
 	if (mup && !mdown) {
@@ -62,6 +69,8 @@ void BaseActor::tick(float delta_time) {
 	if (mleft && !mright) {
 		move(LEFT);
 	}
+
+	check_collision();
 }
 
 void BaseActor::jump() {

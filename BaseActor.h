@@ -6,6 +6,7 @@
 
 #include "GenericSprite.h"
 #include "GenericSystem.h"
+#include "GenericComponent.h"
 #include "Utils.h"
 
 #ifndef _BASEACTOR_
@@ -21,6 +22,7 @@ protected:
 	bool mright;
 	bool mleft;
 	std::vector<GenericSystem*> systems;
+	std::vector<GenericComponent*> components;
 	bool gravity;
 	bool jumping;
 public:
@@ -33,6 +35,7 @@ public:
 		gravity = false;
 		jumping = false;
 		systems = {};
+		components = {};
 	};
 
 	void initialize_sprite(std::string path) override { GenericSprite::initialize_sprite(path); }
@@ -41,6 +44,7 @@ public:
 	void move(directions dir);
 	void set_movement(directions dir, bool key_pressed = true);
 	void add_system(GenericSystem* system);
+	void add_component(GenericComponent* component);
 	void jump();
 
 	//Virtuals

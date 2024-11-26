@@ -1,21 +1,4 @@
-#include<chrono>
-#include<allegro5/allegro.h>
-#include<allegro5/allegro_image.h>
-#include<allegro5/allegro_native_dialog.h>
-#include<typeinfo>
-
-#include "AllegroManager.h"
-#include "Utils.h"
-#include "BaseActor.h"
-#include "Timer.h"
-#include "TickSystem.h"
-#include "BasicCamera.h"
-#include "GravityComponent.h"
-#include "InputSystem.h"
-#include "GenericCommand.h"
-#include "InputHandler.h"
-#include "JumpComponent.h"
-
+#include "Dependencies.h"
 #include "Test.h"
 
 int main(int argc, char** argv) {
@@ -48,17 +31,15 @@ int main(int argc, char** argv) {
 	BasicCamera* camera = new BasicCamera("default", test_player, 1);
 
 	//Components
-	GravityComponent* gravity_component = new GravityComponent();
-	gravity_component->add_actor(test_player);
+	GravityComponent* gravity = new GravityComponent();
+	JumpComponent* jump = new JumpComponent();
 
-	JumpComponent* jump_component = new JumpComponent();
-	jump_component->add_actor(test_player);
+	test_player->add_component(gravity);
+	test_player->add_component(jump);
 
 	//Systems
 	TickSystem* tick_system = new TickSystem();
 	tick_system->add_actor(test_player);
-	tick_system->add_component(gravity_component);
-	tick_system->add_component(jump_component);
 	tick_system->set_camera(camera);
 
 
