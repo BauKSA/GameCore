@@ -7,3 +7,6 @@ posible.
 Ahí dejé funcionando el componente de salto. Tuve que hardcodear una "colisión" hasta que esté completo dicho sistema, pero bueno... queda 
 bien para probar salto y gravedad. Hay unas pequeñas fluctuaciones en la altura del salto, que asumo que tendrán que ver con cómo se maneja 
 delta_time, pero ya habrá tiempo para solucionarlas. La base del sistema está hecha.
+
+## UPDATE 25-11-24 17:52
+Corregido el tema fluctuaciones en el salto y frame rate.
