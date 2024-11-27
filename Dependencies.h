@@ -19,5 +19,6 @@
 #include "GenericCommand.h"
 #include "InputHandler.h"
 #include "JumpComponent.h"
+#include "CollisionSystem.h"
 
 #endif // !_DEPENDENCIES_

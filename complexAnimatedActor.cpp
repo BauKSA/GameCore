@@ -18,7 +18,7 @@ void ComplexAnimatedActor::initialize_sprite(std::vector<AnimationPaths> paths) 
 			Sprite* sprite = new Sprite;
 			sprite->frame = frame;
 			sprite->width = al_get_bitmap_width(frame);
-			sprite->height = al_get_bitmap_height(frame);
+			sprite->height = al_get_bitmap_height(frame) + 1;
 
 			animation->frames.push_back(sprite);
 		}

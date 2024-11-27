@@ -23,6 +23,8 @@ int main(int argc, char** argv) {
 	al_clear_to_color(al_map_rgb(255, 255, 255));
 	test_player->draw();
 	al_flip_display();
+
+	std::vector<BaseActor*> bricks = initialize_bricks();
 	//------------
 	//TESTING  END
 	//------------
@@ -42,6 +44,12 @@ int main(int argc, char** argv) {
 	tick_system->add_actor(test_player);
 	tick_system->set_camera(camera);
 
+	CollisionSystem* collision_system = new CollisionSystem();
+	collision_system->add_actor(test_player);
+	for (size_t i = 0; i < bricks.size(); i++) {
+		collision_system->add_actor(bricks.at(i));
+	}
+
 
 	ALLEGRO_BITMAP* background = al_load_bitmap("./background-test.png");
 	ALLEGRO_BITMAP* screen = al_create_bitmap(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -53,13 +61,16 @@ int main(int argc, char** argv) {
 		al_set_target_bitmap(screen);
 		al_clear_to_color(al_map_rgb(0, 0, 0));
 		al_draw_bitmap(background, 0, 0, NULL);
+		for (size_t i = 0; i < bricks.size(); i++) {
+			bricks.at(i)->draw();
+		}
 
 		float current_time = al_get_time();
 		float delta_time = current_time - last_frame_time;
 
 		// Debug: detectar fluctuaciones altas o bajas en delta_time
 		if (delta_time > 0.1f) {
-			std::cerr << "[WARNING] delta_time alto detectado: " << delta_time << " segundos. Posible freeze o lag." << std::endl;
+			std::cerr << "[WARNING] delta_time alto detectado: " << delta_time << " segundos. Posible lag." << std::endl;
 		}
 		else if (delta_time < 0.0001f) {
 			std::cerr << "[WARNING] delta_time extremadamente bajo: " << delta_time << " segundos. Posible error de cálculo." << std::endl;
@@ -72,6 +83,7 @@ int main(int argc, char** argv) {
 		if (command) handler->check(command);
 
 		tick_system->update(delta_time);
+		collision_system->update();
 
 		alManager->draw_to_display(screen);
 

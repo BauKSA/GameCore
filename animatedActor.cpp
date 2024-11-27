@@ -21,7 +21,7 @@ void AnimatedActor::initialize_sprite(std::vector<std::string> paths) {
 
 		Sprite* sprite = new Sprite();
 		sprite->frame = frame;
-		sprite->height = al_get_bitmap_height(frame);
+		sprite->height = al_get_bitmap_height(frame) + 1;
 		sprite->width = al_get_bitmap_width(frame);
 
 		_animated_sprite->frames.push_back(sprite);

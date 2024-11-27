@@ -10,3 +10,8 @@ delta_time, pero ya habrá tiempo para solucionarlas. La base del sistema está 
 
 ## UPDATE 25-11-24 17:52
 Corregido el tema fluctuaciones en el salto y frame rate.
+
+## UPDATE 27-11-24 16:40
+Costó, pero al fin puedo decir que está un 90% terminado el CollisionSystem. Falta únicamente la colisión del "techo" del actor 1 con el "suelo 
+del otro", pero como por ahora no le doy uso a eso, lo dejo para más adelante y le meto a cosas que creo más relevantes. También quedan algunas 
+correcciones para perfeccionar el sistema, pero son minor issues.

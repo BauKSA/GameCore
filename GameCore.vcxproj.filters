@@ -22,9 +22,6 @@
     <ClCompile Include="allegroManager.cpp">
       <Filter>Archivos de encabezado\Utils\Defs</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Archivos de recursos</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -33,9 +30,6 @@
     </ClCompile>
     <ClCompile Include="gravityComponent.cpp">
       <Filter>Archivos de encabezado\Components\GravityComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="genericComponent.cpp">
-      <Filter>Archivos de encabezado\Components\GenericComponent</Filter>
     </ClCompile>
     <ClCompile Include="moveCommands.cpp">
       <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands</Filter>
@@ -48,6 +42,15 @@
     </ClCompile>
     <ClCompile Include="inputHandler.cpp">
       <Filter>Archivos de encabezado\Systems\Input\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Archivos de recursos\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="jumpComponent.cpp">
+      <Filter>Archivos de encabezado\Components\JumpComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="collisionSystem.cpp">
+      <Filter>Archivos de encabezado\Systems\CollisionSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,9 +84,6 @@
     <ClInclude Include="Timer.h">
       <Filter>Archivos de encabezado\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Test.h">
-      <Filter>Archivos de recursos</Filter>
-    </ClInclude>
     <ClInclude Include="BasicCamera.h">
       <Filter>Archivos de encabezado\Cameras\BasicCamera</Filter>
     </ClInclude>
@@ -116,6 +116,18 @@
     </ClInclude>
     <ClInclude Include="CloseCommand.h">
       <Filter>Archivos de encabezado\Systems\Input\Commands\GlobalCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies.h">
+      <Filter>Archivos de recursos</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Archivos de recursos\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpComponent.h">
+      <Filter>Archivos de encabezado\Components\JumpComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionSystem.h">
+      <Filter>Archivos de encabezado\Systems\CollisionSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +214,15 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Systems\Input\Commands\GlobalCommands">
       <UniqueIdentifier>{fadaddae-363e-479e-949a-d23b44c4950a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Test">
+      <UniqueIdentifier>{eca1ae46-b2aa-465f-b93f-e4531782fb12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\JumpComponent">
+      <UniqueIdentifier>{bb19fc10-c30d-438f-bcab-7910699b9320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\CollisionSystem">
+      <UniqueIdentifier>{82f06e35-8393-456e-a7e6-04d1a40c1d77}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

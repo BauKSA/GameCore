@@ -17,6 +17,8 @@ constexpr float WORLD_HEIGHT = 1500;
 constexpr float FRAME_RATE = .15;
 
 constexpr float JUMP = 3.5;
+constexpr float MIN_STEP = .25            ;
+constexpr float MAX_STEP = 8;
 
 enum directions {
 	UP = 1,

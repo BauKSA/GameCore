@@ -1,6 +1,23 @@
 #include "Test.h"
 #include "JoystickMapping.h"
 
+std::vector<BaseActor*> initialize_bricks() {
+	std::vector<BaseActor*> bricks{};
+	for (size_t i = 0; i < 8; i++) {
+		std::string name = "brick-" + std::to_string(i);
+		BaseActor* brick = new BaseActor(name, 32 * i, 125);
+		brick->initialize_sprite("./test-brick.png");
+		bricks.push_back(brick);
+	}
+
+	std::string name = "brick-b";
+	BaseActor* brick = new BaseActor(name, (32 * 5) + 0.01, 93);
+	brick->initialize_sprite("./test-brick.png");
+	bricks.push_back(brick);
+
+	return bricks;
+}
+
 ComplexAnimatedActor* initialize_test() {
 	AnimationPaths _default;
 	_default.name = "default";
@@ -26,7 +43,7 @@ ComplexAnimatedActor* initialize_test() {
 		"./test.png",
 	};
 
-	ComplexAnimatedActor* actor = new ComplexAnimatedActor("test_actor", 50, SCREEN_HEIGHT - 100, 2.125);
+	ComplexAnimatedActor* actor = new ComplexAnimatedActor("test_actor", 50, 0, 2.125);
 	actor->initialize_sprite({ _default, left, right });
 
 	return actor;

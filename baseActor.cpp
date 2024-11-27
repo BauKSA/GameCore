@@ -12,12 +12,13 @@ void BaseActor::add_component(GenericComponent* component) {
 }
 
 void BaseActor::move(directions dir) {
+	const float speed = vspeed > MAX_STEP ? MAX_STEP : vspeed;
 	switch (dir) {
 	case UP:
-		y -= std::abs(vspeed);
+		y -= std::abs(speed);
 		break;
 	case DOWN:
-		y += std::abs(vspeed);
+		y += std::abs(speed);
 		break;
 	case RIGHT:
 		x += std::abs(hspeed);
@@ -58,23 +59,65 @@ void BaseActor::tick(float delta_time) {
 		move(UP);
 	}
 
-	if (mdown && !mup) {
+	if (mdown && !mup && !cdown) {
 		move(DOWN);
 	}
 
-	if (mright && !mleft) {
+	if (mright && !mleft && !cright) {
 		move(RIGHT);
 	}
 
-	if (mleft && !mright) {
+	if (mleft && !mright && !cleft) {
 		move(LEFT);
 	}
-
-	check_collision();
 }
 
 void BaseActor::jump() {
 	if (jumping) return;
+	y += 0.01;
 	set_vspeed(JUMP);
+	cdown = false;
 	jumping = true;
+	disable_gravity();
+}
+
+void BaseActor::disable_collision(int dir) {
+	switch (dir) {
+	case DOWN:
+		cdown = false;
+		if (!jumping) enable_gravity();
+		break;
+	case RIGHT:
+		cright = false;
+		break;
+	case LEFT:
+		cleft = false;
+		break;
+	default:
+		std::cerr << "Error colliding actor " << name;
+		return;
+	}
+}
+
+void BaseActor::set_collision(int dir, float pos) {
+	switch (dir) {
+	case DOWN:
+		if (cdown) break;
+		cdown = true;
+		jumping = false;
+		disable_gravity();
+		y = pos;
+		break;
+	case RIGHT:
+		if (cright) break;
+		cright = true;
+		break;
+	case LEFT:
+		if (cleft) break;
+		cleft = true;
+		break;
+	default:
+		std::cerr << "Error colliding actor " << name;
+		return;
+	}
 }

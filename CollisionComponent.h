@@ -1,6 +1,0 @@
-#pragma once
-#ifndef _COLLISIONCOMPONENT_
-#define _COLLISIONCOMPONENT_
-
-
-#endif // !_COLLISIONCOMPONENT_

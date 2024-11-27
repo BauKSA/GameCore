@@ -14,6 +14,7 @@
 #define _TEST_
 
 ComplexAnimatedActor* initialize_test();
+std::vector<BaseActor*> initialize_bricks();
 InputSystem* initialize_input();
 
 #endif // !_TEST_
