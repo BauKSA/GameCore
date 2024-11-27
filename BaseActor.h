@@ -31,13 +31,15 @@ protected:
 	bool cright;
 	bool cleft;
 
+	BaseActor* collider;
+
 	std::vector<GenericSystem*> systems;
 	std::vector<GenericComponent*> components;
 public:
 	BaseActor(std::string name, float x, float y, float speed = 0) :
 		SpriteActor(name, x, y), hspeed(speed), vspeed(0),
 		mup(false), mdown(false), mright(false), mleft(false),
-		cdown(false), cright(false), cleft(false),
+		cdown(false), cright(false), cleft(false), collider(nullptr),
 		gravity(true), jumping(false) {
 		systems = {};
 		components = {};
@@ -74,6 +76,7 @@ public:
 
 	//Collision
 	bool get_cdown()const { return cdown; }
+	void set_collider(BaseActor* actor) { collider = actor ? actor : nullptr; }
 
 	~BaseActor() {
 		for (GenericSystem* system : systems) {

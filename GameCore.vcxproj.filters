@@ -26,7 +26,7 @@
       <Filter>Archivos de encabezado\Cameras\BasicCamera</Filter>
     </ClCompile>
     <ClCompile Include="gravityComponent.cpp">
-      <Filter>Archivos de encabezado\Components\GravityComponents</Filter>
+      <Filter>Archivos de encabezado\Components\GravityComponent</Filter>
     </ClCompile>
     <ClCompile Include="moveCommands.cpp">
       <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands</Filter>
@@ -85,7 +85,7 @@
       <Filter>Archivos de encabezado\Components\GenericComponent</Filter>
     </ClInclude>
     <ClInclude Include="GravityComponent.h">
-      <Filter>Archivos de encabezado\Components\GravityComponents</Filter>
+      <Filter>Archivos de encabezado\Components\GravityComponent</Filter>
     </ClInclude>
     <ClInclude Include="GenericCommand.h">
       <Filter>Archivos de encabezado\Systems\Input\Commands\GenericCommand</Filter>
@@ -170,12 +170,6 @@
     <Filter Include="Archivos de encabezado\Components">
       <UniqueIdentifier>{098d56e0-f56d-447d-8b51-8944d3646be4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\Components\GravityComponents">
-      <UniqueIdentifier>{d5c5bf79-165c-4b64-9236-ecd6ceda25bb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Components\GenericComponent">
-      <UniqueIdentifier>{d689e97d-3393-4a19-8ba6-d734817c3b3c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Systems\Input">
       <UniqueIdentifier>{33d8c055-9a69-41b5-a82a-e2c34c7cb7e5}</UniqueIdentifier>
     </Filter>
@@ -214,6 +208,12 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Actors\SpriteActor">
       <UniqueIdentifier>{949cdc10-c177-40a7-b4d6-5758edb38968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\GenericComponent">
+      <UniqueIdentifier>{d689e97d-3393-4a19-8ba6-d734817c3b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\GravityComponent">
+      <UniqueIdentifier>{d5c5bf79-165c-4b64-9236-ecd6ceda25bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
