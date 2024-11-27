@@ -7,11 +7,8 @@
     <ClCompile Include="baseActor.cpp">
       <Filter>Archivos de encabezado\Actors\BaseActor</Filter>
     </ClCompile>
-    <ClCompile Include="complexAnimatedActor.cpp">
-      <Filter>Archivos de encabezado\Actors\ComplexAnimatedActor</Filter>
-    </ClCompile>
-    <ClCompile Include="genericSprite.cpp">
-      <Filter>Archivos de encabezado\Actors\Generic</Filter>
+    <ClCompile Include="spriteActor.cpp">
+      <Filter>Archivos de encabezado\Actors\SpriteActor</Filter>
     </ClCompile>
     <ClCompile Include="genericSystem.cpp">
       <Filter>Archivos de encabezado\Systems\Generic</Filter>
@@ -60,11 +57,8 @@
     <ClInclude Include="BaseActor.h">
       <Filter>Archivos de encabezado\Actors\BaseActor</Filter>
     </ClInclude>
-    <ClInclude Include="ComplexAnimatedActor.h">
-      <Filter>Archivos de encabezado\Actors\ComplexAnimatedActor</Filter>
-    </ClInclude>
-    <ClInclude Include="GenericSprite.h">
-      <Filter>Archivos de encabezado\Actors\Generic</Filter>
+    <ClInclude Include="SpriteActor.h">
+      <Filter>Archivos de encabezado\Actors\SpriteActor</Filter>
     </ClInclude>
     <ClInclude Include="GenericSystem.h">
       <Filter>Archivos de encabezado\Systems\Generic</Filter>
@@ -146,12 +140,6 @@
     <Filter Include="Archivos de encabezado\Actors\AnimatedActor">
       <UniqueIdentifier>{143f7be1-a800-4868-849c-0dcd243fafb4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\Actors\ComplexAnimatedActor">
-      <UniqueIdentifier>{e7c25977-7334-4b7e-aa24-b5f338def733}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Actors\Generic">
-      <UniqueIdentifier>{949cdc10-c177-40a7-b4d6-5758edb38968}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Systems">
       <UniqueIdentifier>{5618f83a-f89a-4571-bf5c-f5f242cd2cab}</UniqueIdentifier>
     </Filter>
@@ -223,6 +211,9 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Systems\CollisionSystem">
       <UniqueIdentifier>{82f06e35-8393-456e-a7e6-04d1a40c1d77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\SpriteActor">
+      <UniqueIdentifier>{949cdc10-c177-40a7-b4d6-5758edb38968}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

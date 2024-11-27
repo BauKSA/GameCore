@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
 	//------------
 	//TESTING INIT
 	//------------
-	ComplexAnimatedActor* test_player = initialize_test();
+	AnimatedActor* test_player = initialize_test();
 	InputSystem* test_input = initialize_input();
 	test_input->start_listening();
 

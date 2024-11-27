@@ -18,7 +18,7 @@ std::vector<BaseActor*> initialize_bricks() {
 	return bricks;
 }
 
-ComplexAnimatedActor* initialize_test() {
+AnimatedActor* initialize_test() {
 	AnimationPaths _default;
 	_default.name = "default";
 	_default.paths = {
@@ -43,8 +43,8 @@ ComplexAnimatedActor* initialize_test() {
 		"./test.png",
 	};
 
-	ComplexAnimatedActor* actor = new ComplexAnimatedActor("test_actor", 50, 0, 2.125);
-	actor->initialize_sprite({ _default, left, right });
+	AnimatedActor* actor = new AnimatedActor("test_actor", 50, 0, 2.125);
+	actor->initialize({ _default, left, right });
 
 	return actor;
 }

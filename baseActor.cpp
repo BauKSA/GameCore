@@ -4,10 +4,12 @@
 #include "BaseActor.h"
 
 void BaseActor::add_system(GenericSystem* system) {
+	if (!system) return;
 	systems.push_back(system);
 }
 
 void BaseActor::add_component(GenericComponent* component) {
+	if (!component) return;
 	components.push_back(component);
 }
 

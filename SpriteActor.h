@@ -5,35 +5,36 @@
 
 #include "Utils.h"
 
-#ifndef _GENERICSPRITE_
-#define _GENERICSPRITE_
+#ifndef _SPRITEACTOR_
+#define _SPRITEACTOR_
 
-class GenericSprite {
+class SpriteActor {
 protected:
 	std::string name;
+	Sprite* sprite;
 	float x;
 	float y;
-	Sprite* sprite;
 public:
-	GenericSprite(std::string _name, float _x, float _y) :
+	SpriteActor(std::string _name, float _x, float _y) :
 		x(_x), y(_y), name(_name) {
 		sprite = nullptr;
 	}
 
-	virtual void initialize_sprite(std::vector<std::string> animation_paths) {};
 	virtual void initialize_sprite(std::string path);
 
 	void draw(int flags = 0);
 
 	float get_x() const { return x; }
 	float get_y() const { return y; }
-	float get_width() const { return sprite->width; }
-	float get_height() const { return sprite->height; }
+
+	float get_width() const { return sprite ? sprite->width : 0.0f; }
+	float get_height() const { return sprite ? sprite->height : 0.0f; }
+
 	std::string get_name() const { return name; }
 
-	~GenericSprite() {
-		al_destroy_bitmap(sprite->frame);
+	~SpriteActor() {
+		if (sprite) al_destroy_bitmap(sprite->frame);
 	}
 };
 
-#endif // !_GENERICSPRITE_
+#endif // !_SPRITEACTOR_

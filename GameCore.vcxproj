@@ -188,8 +188,7 @@
     <ClCompile Include="baseActor.cpp" />
     <ClCompile Include="basicCamera.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
-    <ClCompile Include="complexAnimatedActor.cpp" />
-    <ClCompile Include="genericSprite.cpp" />
+    <ClCompile Include="spriteActor.cpp" />
     <ClCompile Include="genericSystem.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="inputDriver.cpp" />
@@ -209,11 +208,10 @@
     <ClInclude Include="BasicCamera.h" />
     <ClInclude Include="CloseCommand.h" />
     <ClInclude Include="CollisionSystem.h" />
-    <ClInclude Include="ComplexAnimatedActor.h" />
     <ClInclude Include="Dependencies.h" />
     <ClInclude Include="GenericCommand.h" />
     <ClInclude Include="GenericComponent.h" />
-    <ClInclude Include="GenericSprite.h" />
+    <ClInclude Include="SpriteActor.h" />
     <ClInclude Include="GenericSystem.h" />
     <ClInclude Include="GlobalCommand.h" />
     <ClInclude Include="GravityComponent.h" />

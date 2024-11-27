@@ -1,7 +1,7 @@
 #include<iostream>
-#include "GenericSprite.h"
+#include "SpriteActor.h"
 
-void GenericSprite::draw(int flags) {
+void SpriteActor::draw(int flags) {
 	if (!sprite->frame) {
 		std::cerr << "Image charging failed for " << name << std::endl;
 	}
@@ -9,7 +9,7 @@ void GenericSprite::draw(int flags) {
 	al_draw_bitmap(sprite->frame, x, y, flags);
 }
 
-void GenericSprite::initialize_sprite(std::string path) {
+void SpriteActor::initialize_sprite(std::string path) {
 	ALLEGRO_BITMAP* frame = al_load_bitmap(path.c_str());
 	if (!frame) {
 		const std::string error = "Can't initialize sprite in " + name;

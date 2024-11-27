@@ -15,3 +15,7 @@ Corregido el tema fluctuaciones en el salto y frame rate.
 Costó, pero al fin puedo decir que está un 90% terminado el CollisionSystem. Falta únicamente la colisión del "techo" del actor 1 con el "suelo 
 del otro", pero como por ahora no le doy uso a eso, lo dejo para más adelante y le meto a cosas que creo más relevantes. También quedan algunas 
 correcciones para perfeccionar el sistema, pero son minor issues.
+
+#### UPDATE 27-11-24 18:00
+Metí un refactor importante a las clases Actor, eliminando ComplexAnimatedActor, cambiando nombres de variables y métodos y ordenando un poco mejor todo. 
+Estoy viendo de meter una mini documentación para cada una.

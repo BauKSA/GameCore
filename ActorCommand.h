@@ -6,7 +6,7 @@
 
 class ActorCommand : public GenericCommand {
 public:
-	virtual void execute(ComplexAnimatedActor& actor) override {};
+	virtual void execute(AnimatedActor& actor) override {};
 };
 
 

@@ -1,30 +1,41 @@
 #pragma once
 #include<vector>
 #include<string>
+
 #include "BaseActor.h"
+#include "Utils.h"
 
 #ifndef _ANIMATEDACTOR_
 #define _ANIMATEDACTOR_
 
 class AnimatedActor : public BaseActor {
 protected:
-	Animation* animated_sprite;
+	std::vector<Animation*> animations;
+	Animation* current_animation;
 	size_t current_frame;
 	float frame_time;
 public:
 	AnimatedActor(std::string name, float x, float y, float speed) :
-		BaseActor(name, x, y, speed) {
-		animated_sprite = nullptr;
-		current_frame = 0;
-		frame_time = 0;
+		BaseActor(name, x, y, speed),
+		current_animation(nullptr), current_frame(0), frame_time(0.0f) {
 	}
 
-	void initialize_sprite(Animation* animation);
-	void initialize_sprite(std::vector<std::string> animation_paths) override;
+	void initialize(std::vector<AnimationPaths> paths);
+	void set_sprite(Animation* animation);
+
+	void set_animation(std::string name);
+	void next_animation_sprite();
+
 	void tick(float delta_time) override;
 	void update(float delta_time);
 
-	void next_animation_sprite();
+	~AnimatedActor() {
+		for (Animation* animation : animations) {
+			delete animation;
+		}
+
+		animations.clear();
+	}
 };
 
 #endif // !_ANIMATEDACTOR_

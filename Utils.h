@@ -39,4 +39,9 @@ struct Animation {
 	std::vector<Sprite*> frames;
 };
 
+struct AnimationPaths {
+	std::string name;
+	std::vector<std::string> paths;
+};
+
 #endif // !_UTILS_
