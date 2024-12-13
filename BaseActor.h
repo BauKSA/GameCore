@@ -3,6 +3,7 @@
 #include<vector>
 #include<allegro5/allegro.h>
 #include<allegro5/allegro_image.h>
+#include<memory>
 
 #include "SpriteActor.h"
 #include "GenericSystem.h"
@@ -23,6 +24,7 @@ protected:
 	bool mdown;
 	bool mright;
 	bool mleft;
+
 	bool gravity;
 	bool jumping;
 
@@ -31,17 +33,15 @@ protected:
 	bool cright;
 	bool cleft;
 
-	BaseActor* collider;
+	std::weak_ptr<BaseActor> collider;
 
-	std::vector<GenericSystem*> systems;
-	std::vector<GenericComponent*> components;
+	std::vector<std::shared_ptr<GenericComponent>> components;
 public:
 	BaseActor(std::string name, float x, float y, float speed = 0) :
 		SpriteActor(name, x, y), hspeed(speed), vspeed(0),
 		mup(false), mdown(false), mright(false), mleft(false),
-		cdown(false), cright(false), cleft(false), collider(nullptr),
+		cdown(false), cright(false), cleft(false),
 		gravity(true), jumping(false) {
-		systems = {};
 		components = {};
 	};
 
@@ -52,8 +52,7 @@ public:
 	void move(directions dir);
 	void jump();
 
-	void add_system(GenericSystem* system);
-	void add_component(GenericComponent* component);
+	void add_component(std::shared_ptr<GenericComponent> component);
 
 	void set_collision(int dir, float pos = 0);
 	void disable_collision(int dir);
@@ -76,17 +75,7 @@ public:
 
 	//Collision
 	bool get_cdown()const { return cdown; }
-	void set_collider(BaseActor* actor) { collider = actor ? actor : nullptr; }
-
-	~BaseActor() {
-		for (GenericSystem* system : systems) {
-			delete system;
-		}
-
-		for (GenericComponent* component : components) {
-			delete component;
-		}
-	}
+	void set_collider(std::shared_ptr<BaseActor> actor) { collider = actor ? actor : nullptr; }
 };
 
 #endif // !_BASEACTOR_

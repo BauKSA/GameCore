@@ -14,10 +14,6 @@ void TickSystem::update(float delta_time) {
 	al_flip_display();
 }
 
-void TickSystem::add_component(GenericComponent* component) {
-	components.push_back(component);
-}
-
 void TickSystem::set_camera(BasicCamera* _camera) {
 	camera = _camera;
 }

@@ -11,13 +11,11 @@
 class TickSystem : public GenericSystem {
 protected:
 	BasicCamera* camera;
-	std::vector<GenericComponent*> components;
 public:
 	TickSystem() {
 		camera = nullptr;
 	}
 
-	void add_component(GenericComponent* component);
 	void set_camera(BasicCamera* _camera);
 	void update(float delta_time) override;
 };

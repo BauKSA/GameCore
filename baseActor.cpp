@@ -3,13 +3,7 @@
 
 #include "BaseActor.h"
 
-void BaseActor::add_system(GenericSystem* system) {
-	if (!system) return;
-	systems.push_back(system);
-}
-
-void BaseActor::add_component(GenericComponent* component) {
-	if (!component) return;
+void BaseActor::add_component(std::shared_ptr<GenericComponent> component) {
 	components.push_back(component);
 }
 
@@ -49,10 +43,6 @@ void BaseActor::set_movement(directions dir, bool key_pressed) {
 }
 
 void BaseActor::tick(float delta_time) {
-	for (size_t i = 0; i < systems.size(); i++) {
-		systems.at(i)->update();
-	}
-
 	for (size_t i = 0; i < components.size(); i++) {
 		components.at(i)->tick(delta_time, *this);
 	}

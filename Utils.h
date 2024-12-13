@@ -36,7 +36,7 @@ struct Sprite {
 struct Animation {
 	std::string name;
 	int size;
-	std::vector<Sprite*> frames;
+	std::vector<std::shared_ptr<Sprite>> frames;
 };
 
 struct AnimationPaths {

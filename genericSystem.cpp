@@ -1,5 +1,5 @@
 #include "GenericSystem.h"
 
-void GenericSystem::add_actor(BaseActor* actor) {
+void GenericSystem::add_actor(std::shared_ptr<BaseActor> actor) {
 	actors.push_back(actor);
 }

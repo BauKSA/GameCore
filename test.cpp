@@ -1,24 +1,24 @@
 #include "Test.h"
 #include "JoystickMapping.h"
 
-std::vector<BaseActor*> initialize_bricks() {
-	std::vector<BaseActor*> bricks{};
+std::vector<std::shared_ptr<BaseActor>> initialize_bricks() {
+	std::vector<std::shared_ptr<BaseActor>> bricks{};
 	for (size_t i = 0; i < 8; i++) {
 		std::string name = "brick-" + std::to_string(i);
-		BaseActor* brick = new BaseActor(name, 32 * i, 125);
+		std::shared_ptr<BaseActor> brick = std::make_shared<BaseActor>(name, 32 * i, 125);
 		brick->initialize_sprite("./test-brick.png");
 		bricks.push_back(brick);
 	}
 
 	std::string name = "brick-b";
-	BaseActor* brick = new BaseActor(name, (32 * 5) + 0.01, 93);
+	std::shared_ptr<BaseActor> brick = std::make_shared<BaseActor>(name, (32 * 5) + 0.01, 93);
 	brick->initialize_sprite("./test-brick.png");
 	bricks.push_back(brick);
 
 	return bricks;
 }
 
-AnimatedActor* initialize_test() {
+std::shared_ptr<AnimatedActor> initialize_test() {
 	AnimationPaths _default;
 	_default.name = "default";
 	_default.paths = {
@@ -43,13 +43,13 @@ AnimatedActor* initialize_test() {
 		"./test.png",
 	};
 
-	AnimatedActor* actor = new AnimatedActor("test_actor", 50, 0, 2.125);
+	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("test_actor", 50, 0, 2.125);
 	actor->initialize({ _default, left, right });
 
 	return actor;
 }
 
-InputSystem* initialize_input() {
+std::unique_ptr<InputSystem> initialize_input() {
 	MoveRightCommand* move_right = new MoveRightCommand();
 	MoveLeftCommand* move_left = new MoveLeftCommand();
 	StandRightCommand* stand_right = new StandRightCommand();
@@ -67,7 +67,7 @@ InputSystem* initialize_input() {
 	std::vector<KeyCommand> commands{ right, left, sright, sleft, close, jump };
 
 	InputDriver* driver = new InputDriver(commands);
-	InputSystem* test_input = new InputSystem(driver);
+	std::unique_ptr<InputSystem> test_input = std::make_unique<InputSystem>(driver);
 
 	return test_input;
 }

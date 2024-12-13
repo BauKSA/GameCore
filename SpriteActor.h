@@ -2,6 +2,7 @@
 #include<allegro5/allegro.h>
 #include<allegro5/allegro_image.h>
 #include<allegro5/allegro_native_dialog.h>
+#include<memory>
 
 #include "Utils.h"
 
@@ -11,7 +12,7 @@
 class SpriteActor {
 protected:
 	std::string name;
-	Sprite* sprite;
+	std::shared_ptr<Sprite> sprite;
 	float x;
 	float y;
 public:

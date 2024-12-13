@@ -16,15 +16,15 @@ int main(int argc, char** argv) {
 	//------------
 	//TESTING INIT
 	//------------
-	AnimatedActor* test_player = initialize_test();
-	InputSystem* test_input = initialize_input();
+	std::shared_ptr<AnimatedActor> test_player = initialize_test();
+	std::unique_ptr<InputSystem> test_input = initialize_input();
 	test_input->start_listening();
 
 	al_clear_to_color(al_map_rgb(255, 255, 255));
 	test_player->draw();
 	al_flip_display();
 
-	std::vector<BaseActor*> bricks = initialize_bricks();
+	std::vector<std::shared_ptr<BaseActor>> bricks = initialize_bricks();
 	//------------
 	//TESTING  END
 	//------------
@@ -33,8 +33,8 @@ int main(int argc, char** argv) {
 	BasicCamera* camera = new BasicCamera("default", test_player, 1);
 
 	//Components
-	GravityComponent* gravity = new GravityComponent();
-	JumpComponent* jump = new JumpComponent();
+	std::shared_ptr<GravityComponent> gravity = std::make_shared<GravityComponent>();
+	std::shared_ptr<JumpComponent> jump = std::make_shared<JumpComponent>();
 
 	test_player->add_component(gravity);
 	test_player->add_component(jump);

@@ -17,7 +17,7 @@ void AnimatedActor::initialize(std::vector<AnimationPaths> paths) {
 				al_show_native_message_box(nullptr, "Error", "Error initializing", error.c_str(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
 			}
 
-			Sprite* sprite = new Sprite;
+			std::shared_ptr<Sprite> sprite = std::make_shared<Sprite>();
 			sprite->frame = frame;
 			sprite->width = al_get_bitmap_width(frame);
 			sprite->height = al_get_bitmap_height(frame) + 1;

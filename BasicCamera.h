@@ -21,13 +21,13 @@ protected:
 	float x;
 	float y;
 	float zoom;
-	BaseActor* actor;
+	std::shared_ptr<BaseActor> actor;
 
 	void update_xy_to_screen();
 	void apply();
 	void draw_margins() const;
 public:
-	BasicCamera(std::string _name, BaseActor* _actor, float _zoom) :
+	BasicCamera(std::string _name, std::shared_ptr<BaseActor> _actor, float _zoom) :
 		name(_name), actor(_actor), zoom(_zoom) {
 		x = actor->get_x();
 		y = actor->get_y();
