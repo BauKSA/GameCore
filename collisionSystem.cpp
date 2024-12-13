@@ -4,7 +4,6 @@
 #include "BaseActor.h"
 
 void CollisionSystem::update() {
-
 	for (size_t i = 0; i < actors.size(); i++) {
 		bool cdown = false;
 		bool cright = false;
@@ -33,9 +32,10 @@ void CollisionSystem::update() {
 				if ((actor_1_right > actor_2_left && actor_1_left < actor_2_right)) {
 					if ((actor_1_floor > actor_2_ceil && std::abs(actor_1_floor - actor_2_ceil) < MAX_STEP)
 						|| (actor_1_floor < actor_2_ceil && std::abs(actor_1_floor - actor_2_ceil) < MIN_STEP)) {
-						actor_1->set_collision(DOWN, actor_2->get_y() - (actor_2->get_height() / 2) + 0.01);
-						actor_1->set_collider(actor_2);
+						float dif = (actor_1->get_y() + actor_1->get_height() - actor_2->get_y() - 1.0f) * -1;
+						actor_1->set_collider(actor_2, Collision::DOWN, dif);
 						cdown = true;
+
 					}
 				}
 
@@ -43,15 +43,13 @@ void CollisionSystem::update() {
 				if ((actor_1_floor - MAX_STEP > actor_2_ceil) && (actor_1_ceil < actor_2_floor)) {
 					//Buscamos colisión en RIGHT
 					if (actor_1_right + 1 > actor_2_left && actor_1_right < actor_2_right) {
-						actor_1->set_collision(RIGHT);
-						actor_1->set_collider(actor_2);
+						actor_1->set_collider(actor_2, Collision::RIGHT);
 						cright = true;
 					}
 
 					//Buscamos colisión en LEFT
 					if (actor_1_left > actor_2_left && actor_1_left - 1 < actor_2_right) {
-						actor_1->set_collision(LEFT);
-						actor_1->set_collider(actor_2);
+						actor_1->set_collider(actor_2, Collision::LEFT);
 						cleft = true;
 					}
 				}
@@ -60,8 +58,8 @@ void CollisionSystem::update() {
 			}
 		}
 
-		if (!cright) actors.at(i)->disable_collision(RIGHT);
-		if (!cleft) actors.at(i)->disable_collision(LEFT);
-		if (!cdown) actors.at(i)->disable_collision(DOWN);
+		if (!cdown) actors.at(i)->disable_collision(Collision::DOWN);
+		if (!cright) actors.at(i)->disable_collision(Collision::RIGHT);
+		if (!cleft) actors.at(i)->disable_collision(Collision::LEFT);
 	}
 }

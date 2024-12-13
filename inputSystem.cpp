@@ -36,7 +36,7 @@ void InputSystem::start_listening() {
 		std::cerr << "Error loading event queue in InputSystem" << std::endl;
 	}
 
-	al_register_event_source(queue, al_get_joystick_event_source());
+	al_register_event_source(queue, al_get_keyboard_event_source());
 
 	listening = true;
 }
@@ -45,13 +45,12 @@ GenericCommand* InputSystem::listen() {
 	if (listening) {
 		ALLEGRO_EVENT ev;
 		check_key_queue();
-
 		if (al_get_next_event(queue, &ev)) {
-			if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_DOWN) {
-				return driver->handle(ev.joystick.button);
+			if (ev.type == ALLEGRO_EVENT_KEY_DOWN) {
+				return driver->handle(ev.keyboard.keycode);
 			}
-			else if (ev.type == ALLEGRO_EVENT_JOYSTICK_BUTTON_UP) {
-				return driver->handle(ev.joystick.button, false);
+			else if (ev.type == ALLEGRO_EVENT_KEY_UP) {
+				return driver->handle(ev.keyboard.keycode, false);
 			}
 
 		}

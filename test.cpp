@@ -57,12 +57,12 @@ std::unique_ptr<InputSystem> initialize_input() {
 	CloseCommand* _close = new CloseCommand();
 	JumpCommand* _jump = new JumpCommand();
 
-	KeyCommand right(JOY_BUTTON_RIGHT, true, move_right);
-	KeyCommand left(JOY_BUTTON_LEFT, true, move_left);
-	KeyCommand sright(JOY_BUTTON_RIGHT, false, stand_right);
-	KeyCommand sleft(JOY_BUTTON_LEFT, false, stand_left);
-	KeyCommand close(JOY_BUTTON_START, true, _close);
-	KeyCommand jump(JOY_BUTTON_A, true, _jump);
+	KeyCommand right(ALLEGRO_KEY_D, true, move_right);
+	KeyCommand left(ALLEGRO_KEY_A, true, move_left);
+	KeyCommand sright(ALLEGRO_KEY_D, false, stand_right);
+	KeyCommand sleft(ALLEGRO_KEY_A, false, stand_left);
+	KeyCommand close(ALLEGRO_KEY_ESCAPE, true, _close);
+	KeyCommand jump(ALLEGRO_KEY_K, true, _jump);
 
 	std::vector<KeyCommand> commands{ right, left, sright, sleft, close, jump };
 

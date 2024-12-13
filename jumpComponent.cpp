@@ -9,7 +9,7 @@ void JumpComponent::tick(float delta_time, BaseActor& actor) {
 		vspeed -= GRAVITY * delta_time;
 
 		actor.set_vspeed(vspeed);
-		actor.move(UP);
+		actor.move(Directions::UP);
 
 		if (actor.get_vspeed() <= 0) {
 			actor.set_vspeed(0);

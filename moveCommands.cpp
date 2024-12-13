@@ -1,22 +1,22 @@
 #include "MoveCommands.h"
 
 void MoveRightCommand::execute(AnimatedActor& actor) {
-	actor.set_movement(RIGHT);
+	actor.set_movement(Directions::RIGHT);
 	actor.set_animation("right");
 }
 
 void MoveLeftCommand::execute(AnimatedActor& actor) {
-	actor.set_movement(LEFT);
+	actor.set_movement(Directions::LEFT);
 	actor.set_animation("left");
 }
 
 void StandRightCommand::execute(AnimatedActor& actor) {
-	actor.set_movement(RIGHT, false);
+	actor.set_movement(Directions::RIGHT, false);
 	actor.set_animation("default");
 }
 
 void StandLeftCommand::execute(AnimatedActor& actor) {
-	actor.set_movement(LEFT, false);
+	actor.set_movement(Directions::LEFT, false);
 	actor.set_animation("default");
 }
 

@@ -20,7 +20,7 @@ constexpr float JUMP = 3.5;
 constexpr float MIN_STEP = .25            ;
 constexpr float MAX_STEP = 8;
 
-enum directions {
+enum class Directions {
 	UP = 1,
 	DOWN = 2,
 	RIGHT = 3,
