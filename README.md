@@ -19,3 +19,6 @@ correcciones para perfeccionar el sistema, pero son minor issues.
 #### UPDATE 27-11-24 18:00
 Metí un refactor importante a las clases Actor, eliminando ComplexAnimatedActor, cambiando nombres de variables y métodos y ordenando un poco mejor todo. 
 Estoy viendo de meter una mini documentación para cada una.
+
+## UPDATE 13-12-2024 20:20
+Bueno, hoy hice unos refactors importantes. Pasé varias cosas de raw a smart pointers y mandé algunas mejoras al sistema de colisión. La idea es separar un poco más las responsabilidades y acomodar y limpiar la clase BaseActor.
