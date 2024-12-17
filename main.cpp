@@ -20,16 +20,19 @@ int main(int argc, char** argv) {
 
 	std::unique_ptr<TickSystem> tick = std::make_unique<TickSystem>();
 	std::unique_ptr<CollisionSystem> collision = std::make_unique<CollisionSystem>();
+	std::unique_ptr<DrawSystem> draw = std::make_unique<DrawSystem>();
 
 	actor->add_component(gravity);
 	actor->add_component(jump);
 
 	tick->add_actor(actor);
 	collision->add_actor(actor);
+	draw->add_actor(actor);
 
 	for (std::shared_ptr<MovableActor> brick : bricks) {
 		collision->add_actor(brick);
 		tick->add_actor(brick);
+		draw->add_actor(brick);
 	}
 
 	std::shared_ptr<Command> command;
@@ -69,6 +72,7 @@ int main(int argc, char** argv) {
 
 		tick->update(delta_time);
 		collision->update();
+		draw->update();
 
 		window.display();
 

@@ -16,8 +16,8 @@ protected:
 	size_t current_frame;
 	float frame_time;
 public:
-	AnimatedActor(std::string name, float x, float y, float speed) :
-		MovableActor(name, x, y, speed),
+	AnimatedActor(std::string name, float x, float y, float speed, float depth = 1.0f) :
+		MovableActor(name, x, y, speed, depth),
 		current_animation(nullptr), current_frame(0), frame_time(0.0f) {
 	}
 

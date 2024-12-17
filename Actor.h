@@ -12,9 +12,10 @@ protected:
 	std::shared_ptr<Sprite> sprite;
 	float x;
 	float y;
+	float depth;
 public:
-	Actor(std::string _name, float _x, float _y) :
-		x(_x), y(_y), name(_name) {
+	Actor(std::string _name, float _x, float _y, float _depth = 1.0f) :
+		x(_x), y(_y), name(_name), depth(_depth) {
 		sprite = nullptr;
 	}
 
@@ -27,6 +28,7 @@ public:
 
 	float get_width() const { return sprite ? sprite->width : 0.0f; }
 	float get_height() const { return sprite ? sprite->height : 0.0f; }
+	float get_depth() const { return depth; }
 
 	std::string get_name() const { return name; }
 };

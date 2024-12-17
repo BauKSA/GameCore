@@ -33,8 +33,8 @@ protected:
 
 	std::vector<std::shared_ptr<Component>> components;
 public:
-	MovableActor(std::string name, float x, float y, float speed = 0) :
-		Actor(name, x, y), hspeed(speed), vspeed(0),
+	MovableActor(std::string name, float x, float y, float speed = 0, float depth = 1.0f) :
+		Actor(name, x, y, depth), hspeed(speed), vspeed(0),
 		mup(false), mdown(false), mright(false), mleft(false),
 		gravity(true), jumping(false) {
 		components = {};

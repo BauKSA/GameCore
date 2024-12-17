@@ -17,5 +17,6 @@
 #include "InputHandler.h"
 #include "JumpComponent.h"
 #include "CollisionSystem.h"
+#include "DrawSystem.h"
 
 #endif // !_DEPENDENCIES_

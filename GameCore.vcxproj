@@ -196,6 +196,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="animatedActor.cpp" />
+    <ClCompile Include="drawSystem.cpp" />
     <ClCompile Include="movableActor.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
     <ClCompile Include="actor.cpp" />
@@ -212,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActorCommand.h" />
+    <ClInclude Include="DrawSystem.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="MovableActor.h" />

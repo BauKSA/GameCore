@@ -43,6 +43,9 @@
     <ClCompile Include="collisionSystem.cpp">
       <Filter>Archivos de encabezado\Systems\CollisionSystem</Filter>
     </ClCompile>
+    <ClCompile Include="drawSystem.cpp">
+      <Filter>Archivos de encabezado\Systems\DrawSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedActor.h">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="CollisionSystem.h">
       <Filter>Archivos de encabezado\Systems\CollisionSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawSystem.h">
+      <Filter>Archivos de encabezado\Systems\DrawSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +199,9 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\Command">
       <UniqueIdentifier>{b44d2a85-9e3d-459f-a901-4e7fe017538a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\DrawSystem">
+      <UniqueIdentifier>{e59c6faf-6ed4-4de9-8137-67a7f4c76630}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
