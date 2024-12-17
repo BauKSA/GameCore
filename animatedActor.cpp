@@ -6,44 +6,36 @@ void AnimatedActor::initialize(std::vector<AnimationPaths> paths) {
 	bool has_default = false;
 
 	for (size_t i = 0; i < paths.size(); i++) {
-		Animation* animation = new Animation;
+		std::shared_ptr<Animation> animation = std::make_shared<Animation>();
 		animation->name = paths.at(i).name;
 
 		for (std::string path : paths.at(i).paths) {
-			ALLEGRO_BITMAP* frame = al_load_bitmap(path.c_str());
-
-			if (!frame) {
-				const std::string error = "Can't initialize sprite in " + name;
-				al_show_native_message_box(nullptr, "Error", "Error initializing", error.c_str(), nullptr, ALLEGRO_MESSAGEBOX_ERROR);
-			}
-
-			std::shared_ptr<Sprite> sprite = std::make_shared<Sprite>();
-			sprite->frame = frame;
-			sprite->width = al_get_bitmap_width(frame);
-			sprite->height = al_get_bitmap_height(frame) + 1;
+			sprite = Actor::initialize(path);
 
 			animation->frames.push_back(sprite);
 		}
 
 		animation->size = animation->frames.size();
 		animations.push_back(animation);
+	}
 
-		if (animation->name == "default") {
-			set_sprite(animation);
+	for (size_t i = 0; i < animations.size(); i++) {
+		if (animations.at(i)->name == "default") {
 			has_default = true;
+			set_sprite(animations.at(0));
 		}
 	}
 
 	if (!has_default) set_sprite(animations.at(0));
 }
 
-void AnimatedActor::set_sprite(Animation* animation) {
+void AnimatedActor::set_sprite(std::shared_ptr<Animation> animation) {
 	current_animation = animation;
 	sprite = current_animation->frames.at(0);
 }
 
 void AnimatedActor::tick(float delta_time) {
-	BaseActor::tick(delta_time);
+	MovableActor::tick(delta_time);
 	update(delta_time);
 }
 
@@ -67,7 +59,7 @@ void AnimatedActor::next_animation_sprite() {
 }
 
 void AnimatedActor::set_animation(std::string name) {
-	for (Animation* animation : animations) {
+	for (std::shared_ptr<Animation> animation : animations) {
 		if (animation->name == name) {
 			set_sprite(animation);
 		}

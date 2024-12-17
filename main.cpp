@@ -2,60 +2,94 @@
 #include "Test.h"
 
 int main(int argc, char** argv) {
-	AllegroManager* alManager = new AllegroManager;
-	alManager->init();
-
-	if (alManager->failed()) {
-		delete alManager;
-		return -1;
-	}
-
-	float last_frame_time = al_get_time();
 	bool running = true;
 
-	//------------
-	//TESTING INIT
-	//------------
-	std::shared_ptr<AnimatedActor> test_player = initialize_test();
-	std::unique_ptr<InputSystem> test_input = initialize_input();
-	test_input->start_listening();
+	sf::Clock clock;
+	sf::Clock frame_clock;
 
-	al_clear_to_color(al_map_rgb(255, 255, 255));
-	test_player->draw();
-	al_flip_display();
+	float last_frame_time = 0.0f;
 
-	std::vector<std::shared_ptr<BaseActor>> bricks = initialize_bricks();
-	//------------
-	//TESTING  END
-	//------------
+	sf::RenderWindow& window = GameWindow::window();
+	std::shared_ptr<AnimatedActor> actor = initialize_test();
+	std::vector<std::shared_ptr<MovableActor>> bricks = initialize_bricks();
+	std::unique_ptr<InputSystem> input = std::move(initialize_input());
+	input->start_listening();
 
-	//Camera
-	BasicCamera* camera = new BasicCamera("default", test_player, 1);
-
-	//Components
 	std::shared_ptr<GravityComponent> gravity = std::make_shared<GravityComponent>();
 	std::shared_ptr<JumpComponent> jump = std::make_shared<JumpComponent>();
 
-	test_player->add_component(gravity);
-	test_player->add_component(jump);
+	std::unique_ptr<TickSystem> tick = std::make_unique<TickSystem>();
+	std::unique_ptr<CollisionSystem> collision = std::make_unique<CollisionSystem>();
 
-	//Systems
-	TickSystem* tick_system = new TickSystem();
-	tick_system->add_actor(test_player);
-	tick_system->set_camera(camera);
+	actor->add_component(gravity);
+	actor->add_component(jump);
 
-	CollisionSystem* collision_system = new CollisionSystem();
-	collision_system->add_actor(test_player);
-	for (size_t i = 0; i < bricks.size(); i++) {
-		collision_system->add_actor(bricks.at(i));
+	tick->add_actor(actor);
+	collision->add_actor(actor);
+
+	for (std::shared_ptr<MovableActor> brick : bricks) {
+		collision->add_actor(brick);
+		tick->add_actor(brick);
 	}
 
+	std::shared_ptr<Command> command;
+	std::shared_ptr<InputHandler> handler = std::make_shared<InputHandler>(actor, &running);
 
-	ALLEGRO_BITMAP* background = al_load_bitmap("./background-test.png");
-	ALLEGRO_BITMAP* screen = al_create_bitmap(SCREEN_WIDTH, SCREEN_HEIGHT);
+	std::vector<float> deltas{};
 
-	GenericCommand* command{};
-	InputHandler* handler = new InputHandler(test_player, &running);
+	float FRAMES = 60.f;
+
+	while (window.isOpen() && running) {
+		window.clear();
+
+		float current_time = clock.getElapsedTime().asSeconds();
+		float delta_time = current_time - last_frame_time;
+		delta_time = std::min(delta_time, 1.0f / FRAMES);
+		last_frame_time = current_time;
+
+		float sleep_time = (1.0f / FRAMES) - frame_clock.getElapsedTime().asSeconds();
+		if (sleep_time > 0) {
+			sf::sleep(sf::seconds(sleep_time));
+		}
+
+		deltas.push_back(delta_time);
+
+		if (delta_time > 0.1f) {
+			std::cerr << "[WARNING] delta_time alto detectado: " << delta_time << " segundos. Posible lag." << std::endl;
+		}
+		else if (delta_time < 0.0001f) {
+			std::cerr << "[WARNING] delta_time extremadamente bajo: " << delta_time << " segundos. Posible error de cálculo." << std::endl;
+		}
+
+
+		command = input->listen();
+		if (command) {
+			handler->check(command);
+		}
+
+		tick->update(delta_time);
+		collision->update();
+
+		window.display();
+
+		frame_clock.restart();
+	}
+
+	float max = -1 , min = 1;
+	for (size_t i = 0; i < deltas.size(); i++) {
+		if (deltas.at(i) < min) min = deltas.at(i);
+		if (deltas.at(i) > max) max = deltas.at(i);
+	}
+
+	std::cout << "\n\n\n\n";
+	std::cout << "[WARNING] delta_time max: " << max << ", min: " << min << std::endl;
+
+
+	return 0;
+}
+/*
+	float last_frame_time = al_get_time();
+	bool running = true;
 
 	while (running) {
 		al_set_target_bitmap(screen);
@@ -85,8 +119,6 @@ int main(int argc, char** argv) {
 		tick_system->update(delta_time);
 		collision_system->update();
 
-		alManager->draw_to_display(screen);
-
 		// Asegurar que el frame rate no exceda un máximo (ejemplo: 60 FPS)
 		float frame_time = al_get_time() - current_time;
 		if (frame_time < (1.0f / 60.0f)) {
@@ -95,6 +127,4 @@ int main(int argc, char** argv) {
 	}
 
 	test_input->stop_listening();
-
-	return 0;
-}
+	*/

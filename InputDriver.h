@@ -1,17 +1,18 @@
 #pragma once
 #include<vector>
+#include<memory>
 
-#include "GenericCommand.h"
+#include "Command.h"
 
 #ifndef _INPUTDRIVER_
 #define _INPUTDRIVER_
 
 struct KeyCommand {
-	int button;
+	sf::Keyboard::Key button;
 	bool pressed;
-	GenericCommand* command;
+	std::shared_ptr<Command> command;
 
-	KeyCommand(int _button, bool _pressed, GenericCommand* _command) :
+	KeyCommand(sf::Keyboard::Key _button, bool _pressed, std::shared_ptr<Command> _command) :
 		button(_button), pressed(_pressed), command(_command) {
 	};
 };
@@ -24,7 +25,7 @@ public:
 		commands(_commands) {
 	}
 
-	GenericCommand* handle(int button, bool pressed = true);
+	std::shared_ptr<Command> handle(int button, bool pressed = true);
 };
 
 #endif // !_INPUTDRIVER_

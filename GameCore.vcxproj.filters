@@ -4,41 +4,35 @@
     <ClCompile Include="animatedActor.cpp">
       <Filter>Archivos de encabezado\Actors\AnimatedActor</Filter>
     </ClCompile>
-    <ClCompile Include="baseActor.cpp">
-      <Filter>Archivos de encabezado\Actors\BaseActor</Filter>
+    <ClCompile Include="movableActor.cpp">
+      <Filter>Archivos de encabezado\Actors\MovableActor</Filter>
     </ClCompile>
-    <ClCompile Include="spriteActor.cpp">
-      <Filter>Archivos de encabezado\Actors\SpriteActor</Filter>
+    <ClCompile Include="actor.cpp">
+      <Filter>Archivos de encabezado\Actors\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="genericSystem.cpp">
-      <Filter>Archivos de encabezado\Systems\Generic</Filter>
+    <ClCompile Include="system.cpp">
+      <Filter>Archivos de encabezado\Systems\System</Filter>
     </ClCompile>
     <ClCompile Include="tickSystem.cpp">
       <Filter>Archivos de encabezado\Systems\TickSystem</Filter>
     </ClCompile>
-    <ClCompile Include="allegroManager.cpp">
-      <Filter>Archivos de encabezado\Utils\Defs</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="basicCamera.cpp">
-      <Filter>Archivos de encabezado\Cameras\BasicCamera</Filter>
     </ClCompile>
     <ClCompile Include="gravityComponent.cpp">
       <Filter>Archivos de encabezado\Components\GravityComponent</Filter>
     </ClCompile>
     <ClCompile Include="moveCommands.cpp">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands\MoveCommands</Filter>
     </ClCompile>
     <ClCompile Include="inputSystem.cpp">
-      <Filter>Archivos de encabezado\Systems\Input\System</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\System</Filter>
     </ClCompile>
     <ClCompile Include="inputDriver.cpp">
-      <Filter>Archivos de encabezado\Systems\Input\Driver</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Driver</Filter>
     </ClCompile>
     <ClCompile Include="inputHandler.cpp">
-      <Filter>Archivos de encabezado\Systems\Input\Handler</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Handler</Filter>
     </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>Archivos de recursos\Test</Filter>
@@ -54,19 +48,19 @@
     <ClInclude Include="AnimatedActor.h">
       <Filter>Archivos de encabezado\Actors\AnimatedActor</Filter>
     </ClInclude>
-    <ClInclude Include="BaseActor.h">
-      <Filter>Archivos de encabezado\Actors\BaseActor</Filter>
+    <ClInclude Include="MovableActor.h">
+      <Filter>Archivos de encabezado\Actors\MovableActor</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteActor.h">
-      <Filter>Archivos de encabezado\Actors\SpriteActor</Filter>
+    <ClInclude Include="Actor.h">
+      <Filter>Archivos de encabezado\Actors\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="GenericSystem.h">
-      <Filter>Archivos de encabezado\Systems\Generic</Filter>
+    <ClInclude Include="System.h">
+      <Filter>Archivos de encabezado\Systems\System</Filter>
     </ClInclude>
     <ClInclude Include="TickSystem.h">
       <Filter>Archivos de encabezado\Systems\TickSystem</Filter>
     </ClInclude>
-    <ClInclude Include="AllegroManager.h">
+    <ClInclude Include="GameWindow.h">
       <Filter>Archivos de encabezado\Utils</Filter>
     </ClInclude>
     <ClInclude Include="JoystickMapping.h">
@@ -78,38 +72,35 @@
     <ClInclude Include="Timer.h">
       <Filter>Archivos de encabezado\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="BasicCamera.h">
-      <Filter>Archivos de encabezado\Cameras\BasicCamera</Filter>
-    </ClInclude>
-    <ClInclude Include="GenericComponent.h">
-      <Filter>Archivos de encabezado\Components\GenericComponent</Filter>
+    <ClInclude Include="Component.h">
+      <Filter>Archivos de encabezado\Components\Component</Filter>
     </ClInclude>
     <ClInclude Include="GravityComponent.h">
       <Filter>Archivos de encabezado\Components\GravityComponent</Filter>
     </ClInclude>
-    <ClInclude Include="GenericCommand.h">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\GenericCommand</Filter>
+    <ClInclude Include="Command.h">
+      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\Command</Filter>
     </ClInclude>
     <ClInclude Include="MoveCommands.h">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands\MoveCommands</Filter>
     </ClInclude>
     <ClInclude Include="InputSystem.h">
-      <Filter>Archivos de encabezado\Systems\Input\System</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\System</Filter>
     </ClInclude>
     <ClInclude Include="InputDriver.h">
-      <Filter>Archivos de encabezado\Systems\Input\Driver</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Driver</Filter>
     </ClInclude>
     <ClInclude Include="InputHandler.h">
-      <Filter>Archivos de encabezado\Systems\Input\Handler</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Handler</Filter>
     </ClInclude>
     <ClInclude Include="ActorCommand.h">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\ActorCommands</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands</Filter>
     </ClInclude>
     <ClInclude Include="GlobalCommand.h">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\GlobalCommands</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\GlobalCommands</Filter>
     </ClInclude>
     <ClInclude Include="CloseCommand.h">
-      <Filter>Archivos de encabezado\Systems\Input\Commands\GlobalCommands</Filter>
+      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\GlobalCommands</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies.h">
       <Filter>Archivos de recursos</Filter>
@@ -125,17 +116,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Archivos de encabezado">
       <UniqueIdentifier>{e472c0fb-f126-4734-b6ef-eb77099f38d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de encabezado\Actors">
       <UniqueIdentifier>{0ad0b4fa-a167-4a71-9aad-ec9c590a02fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Actors\BaseActor">
-      <UniqueIdentifier>{aee40e4d-f7f5-49e7-ad84-536f6f5551ac}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de encabezado\Actors\AnimatedActor">
       <UniqueIdentifier>{143f7be1-a800-4868-849c-0dcd243fafb4}</UniqueIdentifier>
@@ -143,17 +128,11 @@
     <Filter Include="Archivos de encabezado\Systems">
       <UniqueIdentifier>{5618f83a-f89a-4571-bf5c-f5f242cd2cab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Generic">
-      <UniqueIdentifier>{13b5e80c-2b39-49c8-889a-ab10e7bc0347}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Systems\TickSystem">
       <UniqueIdentifier>{6a4468c2-28d3-4c13-ad64-e2e88d71e51d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de encabezado\Utils">
       <UniqueIdentifier>{79a5b99e-edfb-4d36-82c8-7c48f8b20a05}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Utils\Defs">
-      <UniqueIdentifier>{2f952292-9180-4a4c-9276-7b2529aae88c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de origen">
       <UniqueIdentifier>{2aabfe34-cd37-4712-821b-0afdbb65cf78}</UniqueIdentifier>
@@ -161,41 +140,8 @@
     <Filter Include="Archivos de recursos">
       <UniqueIdentifier>{939befa9-3e9a-4252-baef-133e540e9ca4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\Cameras">
-      <UniqueIdentifier>{7b158f18-a7f2-483e-ac4f-e3866810e614}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Cameras\BasicCamera">
-      <UniqueIdentifier>{e6d24f7f-b484-46da-acf8-fa860fc5f9bb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Components">
       <UniqueIdentifier>{098d56e0-f56d-447d-8b51-8944d3646be4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input">
-      <UniqueIdentifier>{33d8c055-9a69-41b5-a82a-e2c34c7cb7e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Commands">
-      <UniqueIdentifier>{d8a57d69-2d39-429e-9fa1-eeee94728901}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Commands\GenericCommand">
-      <UniqueIdentifier>{b44d2a85-9e3d-459f-a901-4e7fe017538a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\System">
-      <UniqueIdentifier>{d9cae08d-b5a3-4487-a32a-00660231de50}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Driver">
-      <UniqueIdentifier>{58378fff-a057-4675-90ea-bba6f86eea39}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Handler">
-      <UniqueIdentifier>{3f287f80-5db4-403e-9901-a163d49f7970}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Commands\ActorCommands">
-      <UniqueIdentifier>{7cbc27a5-fe10-4a32-aeb2-fdb66091d09e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Commands\ActorCommands\MoveCommands">
-      <UniqueIdentifier>{a46ed297-375d-46b3-b154-bbd98f05651e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\Input\Commands\GlobalCommands">
-      <UniqueIdentifier>{fadaddae-363e-479e-949a-d23b44c4950a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de recursos\Test">
       <UniqueIdentifier>{eca1ae46-b2aa-465f-b93f-e4531782fb12}</UniqueIdentifier>
@@ -206,14 +152,47 @@
     <Filter Include="Archivos de encabezado\Systems\CollisionSystem">
       <UniqueIdentifier>{82f06e35-8393-456e-a7e6-04d1a40c1d77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\Actors\SpriteActor">
-      <UniqueIdentifier>{949cdc10-c177-40a7-b4d6-5758edb38968}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Components\GenericComponent">
-      <UniqueIdentifier>{d689e97d-3393-4a19-8ba6-d734817c3b3c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Components\GravityComponent">
       <UniqueIdentifier>{d5c5bf79-165c-4b64-9236-ecd6ceda25bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\Actor">
+      <UniqueIdentifier>{949cdc10-c177-40a7-b4d6-5758edb38968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Actors\MovableActor">
+      <UniqueIdentifier>{aee40e4d-f7f5-49e7-ad84-536f6f5551ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\Component">
+      <UniqueIdentifier>{d689e97d-3393-4a19-8ba6-d734817c3b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\System">
+      <UniqueIdentifier>{13b5e80c-2b39-49c8-889a-ab10e7bc0347}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem">
+      <UniqueIdentifier>{33d8c055-9a69-41b5-a82a-e2c34c7cb7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands">
+      <UniqueIdentifier>{d8a57d69-2d39-429e-9fa1-eeee94728901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands">
+      <UniqueIdentifier>{7cbc27a5-fe10-4a32-aeb2-fdb66091d09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands\MoveCommands">
+      <UniqueIdentifier>{a46ed297-375d-46b3-b154-bbd98f05651e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\GlobalCommands">
+      <UniqueIdentifier>{fadaddae-363e-479e-949a-d23b44c4950a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\System">
+      <UniqueIdentifier>{d9cae08d-b5a3-4487-a32a-00660231de50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Driver">
+      <UniqueIdentifier>{58378fff-a057-4675-90ea-bba6f86eea39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Handler">
+      <UniqueIdentifier>{3f287f80-5db4-403e-9901-a163d49f7970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\Command">
+      <UniqueIdentifier>{b44d2a85-9e3d-459f-a901-4e7fe017538a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

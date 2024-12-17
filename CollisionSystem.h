@@ -1,10 +1,10 @@
 #pragma once
-#include "GenericSystem.h"
+#include "System.h"
 
 #ifndef _COLLISIONSYSTEM_
 #define _COLLISIONSYSTEM_
 
-class CollisionSystem : public GenericSystem {
+class CollisionSystem : public System {
 public:
 	virtual void update() override;
 };

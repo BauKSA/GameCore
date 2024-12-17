@@ -1,12 +1,12 @@
 #include "JumpComponent.h"
 #include "Utils.h"
 
-void JumpComponent::tick(float delta_time, BaseActor& actor) {
+void JumpComponent::tick(float delta_time, MovableActor& actor) {
 	if (actor.get_vspeed() > 0) {
 		actor.disable_gravity();
 
 		float vspeed = actor.get_vspeed();
-		vspeed -= GRAVITY * delta_time;
+		vspeed -= (GRAVITY * delta_time);
 
 		actor.set_vspeed(vspeed);
 		actor.move(Directions::UP);

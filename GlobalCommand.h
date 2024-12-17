@@ -1,10 +1,10 @@
 #pragma once
-#include "GenericCommand.h"
+#include "Command.h"
 
 #ifndef _GLOBALCOMMAND_
 #define _GLOBALCOMMAND_
 
-class GlobalCommand : public GenericCommand {
+class GlobalCommand : public Command {
 public:
 	virtual void execute(bool& running) override {};
 };

@@ -2,22 +2,21 @@
 #include<vector>
 #include<string>
 #include<chrono>
-#include<allegro5/allegro5.h>
-#include<allegro5/allegro_image.h>
+#include<SFML/Graphics.hpp>
 
 #ifndef _UTILS_
 #define _UTILS_
 
-constexpr float SCREEN_WIDTH = 400;
-constexpr float SCREEN_HEIGHT = 300;
+constexpr unsigned int SCREEN_WIDTH = 640; //640
+constexpr unsigned int SCREEN_HEIGHT = 360; //360
 
-constexpr float WORLD_WIDTH = 1500;
-constexpr float WORLD_HEIGHT = 1500;
+constexpr unsigned int WORLD_WIDTH = 1500;
+constexpr unsigned int WORLD_HEIGHT = 1500;
 
-constexpr float FRAME_RATE = .15;
+constexpr float FRAME_RATE = 0.15f;
 
-constexpr float JUMP = 3.5;
-constexpr float MIN_STEP = .25            ;
+constexpr float JUMP = 5.0f;
+constexpr float MIN_STEP = .25;
 constexpr float MAX_STEP = 8;
 
 enum class Directions {
@@ -27,10 +26,19 @@ enum class Directions {
 	LEFT = 4
 };
 
+enum class Collision {
+	NONE = 0,
+	RIGHT = 1,
+	LEFT = 2,
+	UP = 3,
+	DOWN = 4
+};
+
 struct Sprite {
 	int width;
 	int height;
-	ALLEGRO_BITMAP* frame;
+	sf::Texture texture;
+	sf::Sprite frame;
 };
 
 struct Animation {

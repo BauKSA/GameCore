@@ -1,18 +1,20 @@
 #include "Test.h"
 #include "JoystickMapping.h"
 
-std::vector<std::shared_ptr<BaseActor>> initialize_bricks() {
-	std::vector<std::shared_ptr<BaseActor>> bricks{};
+std::vector<std::shared_ptr<MovableActor>> initialize_bricks() {
+	std::string sprite = "./test-brick.png";
+	std::vector<std::shared_ptr<MovableActor>> bricks{};
+
 	for (size_t i = 0; i < 8; i++) {
 		std::string name = "brick-" + std::to_string(i);
-		std::shared_ptr<BaseActor> brick = std::make_shared<BaseActor>(name, 32 * i, 125);
-		brick->initialize_sprite("./test-brick.png");
+		std::shared_ptr<MovableActor> brick = std::make_shared<MovableActor>(name, 32 * i, 125);
+		brick->initialize(sprite);
 		bricks.push_back(brick);
 	}
 
 	std::string name = "brick-b";
-	std::shared_ptr<BaseActor> brick = std::make_shared<BaseActor>(name, (32 * 5) + 0.01, 93);
-	brick->initialize_sprite("./test-brick.png");
+	std::shared_ptr<MovableActor> brick = std::make_shared<MovableActor>(name, (32 * 5) + 0.01, 93);
+	brick->initialize(sprite);
 	bricks.push_back(brick);
 
 	return bricks;
@@ -43,31 +45,31 @@ std::shared_ptr<AnimatedActor> initialize_test() {
 		"./test.png",
 	};
 
-	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("test_actor", 50, 0, 2.125);
+	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("test_actor", 50, 0, 2.25f);
 	actor->initialize({ _default, left, right });
 
 	return actor;
 }
 
 std::unique_ptr<InputSystem> initialize_input() {
-	MoveRightCommand* move_right = new MoveRightCommand();
-	MoveLeftCommand* move_left = new MoveLeftCommand();
-	StandRightCommand* stand_right = new StandRightCommand();
-	StandLeftCommand* stand_left = new StandLeftCommand();
-	CloseCommand* _close = new CloseCommand();
-	JumpCommand* _jump = new JumpCommand();
+	std::shared_ptr<MoveRightCommand> move_right = std::make_shared<MoveRightCommand>();
+	std::shared_ptr<MoveLeftCommand> move_left = std::make_shared<MoveLeftCommand>();
+	std::shared_ptr<StandRightCommand> stand_right = std::make_shared<StandRightCommand>();
+	std::shared_ptr<StandLeftCommand> stand_left = std::make_shared<StandLeftCommand>();
+	std::shared_ptr<CloseCommand> _close = std::make_shared<CloseCommand>();
+	std::shared_ptr<JumpCommand> _jump = std::make_shared<JumpCommand>();
 
-	KeyCommand right(ALLEGRO_KEY_D, true, move_right);
-	KeyCommand left(ALLEGRO_KEY_A, true, move_left);
-	KeyCommand sright(ALLEGRO_KEY_D, false, stand_right);
-	KeyCommand sleft(ALLEGRO_KEY_A, false, stand_left);
-	KeyCommand close(ALLEGRO_KEY_ESCAPE, true, _close);
-	KeyCommand jump(ALLEGRO_KEY_K, true, _jump);
+	KeyCommand right(sf::Keyboard::D, true, move_right);
+	KeyCommand left(sf::Keyboard::A, true, move_left);
+	KeyCommand sright(sf::Keyboard::D, false, stand_right);
+	KeyCommand sleft(sf::Keyboard::A, false, stand_left);
+	KeyCommand close(sf::Keyboard::Escape, true, _close);
+	KeyCommand jump(sf::Keyboard::K, true, _jump);
 
 	std::vector<KeyCommand> commands{ right, left, sright, sleft, close, jump };
 
-	InputDriver* driver = new InputDriver(commands);
-	std::unique_ptr<InputSystem> test_input = std::make_unique<InputSystem>(driver);
+	std::unique_ptr<InputDriver> driver = std::make_unique<InputDriver>(commands);
+	std::unique_ptr<InputSystem> test_input = std::make_unique<InputSystem>(std::move(driver));
 
 	return test_input;
 }

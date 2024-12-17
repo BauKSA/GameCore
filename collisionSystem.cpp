@@ -1,7 +1,7 @@
 #include <cmath>
 
 #include "CollisionSystem.h"
-#include "BaseActor.h"
+#include "MovableActor.h"
 
 void CollisionSystem::update() {
 	for (size_t i = 0; i < actors.size(); i++) {
@@ -11,8 +11,8 @@ void CollisionSystem::update() {
 
 		for (size_t j = 0; j < actors.size(); j++) {
 			if (actors.at(i) != actors.at(j)) {
-				std::shared_ptr<BaseActor> actor_1 = actors.at(i);
-				std::shared_ptr<BaseActor> actor_2 = actors.at(j);
+				std::shared_ptr<MovableActor> actor_1 = actors.at(i);
+				std::shared_ptr<MovableActor> actor_2 = actors.at(j);
 
 				float actor_1_ceil = actor_1->get_y();
 				float actor_1_floor = actor_1->get_y() + actor_1->get_height();

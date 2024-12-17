@@ -1,13 +1,13 @@
 #include "InputDriver.h"
 
-GenericCommand* InputDriver::handle(int button, bool pressed) {
-	GenericCommand* command = nullptr;
+std::shared_ptr<Command> InputDriver::handle(int button, bool pressed) {
 	for (size_t i = 0; i < commands.size(); i++) {
 		if (commands.at(i).button == button
 			&& commands.at(i).pressed == pressed) {
-			command = commands.at(i).command;
+			std::cout << "[DEBUG] Command found: " << button << std::endl;
+			return commands.at(i).command;
 		}
 	}
 
-	return command;
+	return nullptr;
 }

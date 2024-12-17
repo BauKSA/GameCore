@@ -17,9 +17,9 @@ public:
 		player(_player), running(_running) {
 	};
 
-	void check(GenericCommand* command);
+	void check(std::shared_ptr<Command> command);
 
-	void execute(GenericCommand* command, std::variant<std::shared_ptr<AnimatedActor>, bool*> actor_receiver) {
+	void execute(std::shared_ptr <Command> command, std::variant<std::shared_ptr<AnimatedActor>, bool*> actor_receiver) {
 		std::visit([&](auto&& arg) { command->execute(*arg); }, actor_receiver);
 	}
 };

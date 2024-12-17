@@ -1,11 +1,11 @@
 #pragma once
-#include "GenericComponent.h"
-#include "BaseActor.h"
+#include "Component.h"
+#include "MovableActor.h"
 
 #ifndef _JUMPCOMPONENT_
 #define _JUMPCOMPONENT_
 
-class JumpComponent : public GenericComponent {
+class JumpComponent : public Component {
 protected:
 	const float GRAVITY;
 public:
@@ -13,7 +13,7 @@ public:
 		GRAVITY(_GRAVITY) {
 	}
 
-	void tick(float delta_time, BaseActor& actor) override;
+	void tick(float delta_time, MovableActor& actor) override;
 };
 
 #endif // !_JUMPCOMPONENT_

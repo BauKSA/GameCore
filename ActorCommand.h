@@ -1,10 +1,10 @@
 #pragma once
-#include "GenericCommand.h"
+#include "Command.h"
 
 #ifndef _ACTORCOMMAND_
 #define _ACTORCOMMAND_
 
-class ActorCommand : public GenericCommand {
+class ActorCommand : public Command {
 public:
 	virtual void execute(AnimatedActor& actor) override {};
 };

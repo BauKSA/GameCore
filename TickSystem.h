@@ -1,22 +1,15 @@
 #pragma once
 #include<vector>
 
-#include "GenericSystem.h"
-#include "BasicCamera.h"
-#include "GenericComponent.h"
+#include "MovableActor.h"
+#include "System.h"
+#include "Component.h"
 
 #ifndef _TICKSYSTEM_
 #define _TICKSYSTEM_
 
-class TickSystem : public GenericSystem {
-protected:
-	BasicCamera* camera;
+class TickSystem : public System {
 public:
-	TickSystem() {
-		camera = nullptr;
-	}
-
-	void set_camera(BasicCamera* _camera);
 	void update(float delta_time) override;
 };
 
