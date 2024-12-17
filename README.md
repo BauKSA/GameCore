@@ -22,3 +22,9 @@ Estoy viendo de meter una mini documentación para cada una.
 
 ## UPDATE 13-12-2024 20:20
 Bueno, hoy hice unos refactors importantes. Pasé varias cosas de raw a smart pointers y mandé algunas mejoras al sistema de colisión. La idea es separar un poco más las responsabilidades y acomodar y limpiar la clase BaseActor.
+
+# UPDATE 16-12-2024 22:45
+## ME VOLVÍ COMPLETAMENTE LOCO??
+Bueno, puede ser... analizando varios aspectos y aprovechando que el proyecto está en una fase todavía inicial, decidí cambiar de ALLEGRO a SFML. Esto significa (al menos por ahora) el fin de una etapa... crecí programando con ALLEGRO, pero siento que ya es momento de pegar el salto y animarme a una librería un poco más compleja y fuerte en ciertos aspectos.
+Igualmente, una cosa me hace sentir bastante bien. Hice toda la migración en UN DÍA. Qué significa esto?? No sé, pero siento que el código y la estructura está bastante bien armada, porque solamente tuve que modificar la carga de sprites y la creación de la ventana (más algunos detalles menores). Eso habla bien de lo que estoy armando?? Espero que sí.
+Pero bueno... veremos cómo sigue todo. Espero poder seguir sumando funcionalidades a este Core, que ya tuvo su debut (aún cuando estaba con ALLEGRO) con este juego, y siento que quedó bastante bien, por más que haya cosas obvias por pulir (algunas de las cuales ya corregí en los últimos commits): https://fox-hushen.itch.io/reindeers-and-hearths.
