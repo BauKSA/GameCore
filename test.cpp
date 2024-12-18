@@ -45,7 +45,7 @@ std::shared_ptr<AnimatedActor> initialize_test() {
 		"./test.png",
 	};
 
-	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("test_actor", 50, 0, 2.25f);
+	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("player", 50, 0, 2.25f);
 	actor->initialize({ _default, left, right });
 
 	return actor;

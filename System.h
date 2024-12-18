@@ -7,7 +7,7 @@ class MovableActor;
 
 class System {
 protected:
-	std::vector<std::shared_ptr<MovableActor>> actors;
+	std::vector<std::weak_ptr<MovableActor>> actors;
 public:
 	System() {}
 

@@ -46,6 +46,9 @@
     <ClCompile Include="drawSystem.cpp">
       <Filter>Archivos de encabezado\Systems\DrawSystem</Filter>
     </ClCompile>
+    <ClCompile Include="physicsSystem.cpp">
+      <Filter>Archivos de encabezado\Systems\PhysicsSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedActor.h">
@@ -119,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="DrawSystem.h">
       <Filter>Archivos de encabezado\Systems\DrawSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>Archivos de encabezado\Systems\PhysicsSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +208,9 @@
     </Filter>
     <Filter Include="Archivos de encabezado\Systems\DrawSystem">
       <UniqueIdentifier>{e59c6faf-6ed4-4de9-8137-67a7f4c76630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Systems\PhysicsSystem">
+      <UniqueIdentifier>{97839b4c-8ef5-4158-b5b6-1bc7def051c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

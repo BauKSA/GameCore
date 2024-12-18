@@ -18,5 +18,6 @@
 #include "JumpComponent.h"
 #include "CollisionSystem.h"
 #include "DrawSystem.h"
+#include "PhysicsSystem.h"
 
 #endif // !_DEPENDENCIES_

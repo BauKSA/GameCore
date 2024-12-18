@@ -200,6 +200,7 @@
     <ClCompile Include="movableActor.cpp" />
     <ClCompile Include="collisionSystem.cpp" />
     <ClCompile Include="actor.cpp" />
+    <ClCompile Include="physicsSystem.cpp" />
     <ClCompile Include="system.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
     <ClCompile Include="inputDriver.cpp" />
@@ -223,6 +224,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="GlobalCommand.h" />
     <ClInclude Include="GravityComponent.h" />

@@ -6,7 +6,7 @@
 #ifndef _ACTOR_
 #define _ACTOR_
 
-class Actor {
+class Actor : std::enable_shared_from_this<Actor> {
 protected:
 	std::string name;
 	std::shared_ptr<Sprite> sprite;
@@ -31,6 +31,8 @@ public:
 	float get_depth() const { return depth; }
 
 	std::string get_name() const { return name; }
+
+	void destroy() const { auto self = shared_from_this(); self.reset(); }
 };
 
 #endif // !_ACTOR_
