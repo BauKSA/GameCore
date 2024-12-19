@@ -19,6 +19,8 @@ constexpr float JUMP = 5.0f;
 constexpr float MIN_STEP = .25;
 constexpr float MAX_STEP = 8;
 
+const float PI = 3.14159265358979323846f;
+
 enum class Directions {
 	UP = 1,
 	DOWN = 2,

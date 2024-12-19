@@ -9,7 +9,7 @@ class GravityComponent : public Component {
 protected:
 	const float GRAVITY;
 public:
-	GravityComponent(float _GRAVITY = 9.8f) :
+	GravityComponent(float _GRAVITY = 13.f) :
 		GRAVITY(_GRAVITY) {
 	}
 

@@ -9,7 +9,7 @@ class JumpComponent : public Component {
 protected:
 	const float GRAVITY;
 public:
-	JumpComponent(float _GRAVITY = 9.8f) :
+	JumpComponent(float _GRAVITY = 13.f) :
 		GRAVITY(_GRAVITY) {
 	}
 

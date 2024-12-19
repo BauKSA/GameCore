@@ -5,17 +5,35 @@ std::vector<std::shared_ptr<MovableActor>> initialize_bricks() {
 	std::string sprite = "./test-brick.png";
 	std::vector<std::shared_ptr<MovableActor>> bricks{};
 
-	for (size_t i = 0; i < 8; i++) {
+	for (size_t i = 0; i < 16; i++) {
+		if (i == 12) continue;
 		std::string name = "brick-" + std::to_string(i);
 		std::shared_ptr<MovableActor> brick = std::make_shared<MovableActor>(name, 32 * i, 125);
 		brick->initialize(sprite);
+		brick->disable_movement();
 		bricks.push_back(brick);
 	}
 
 	std::string name = "brick-b";
 	std::shared_ptr<MovableActor> brick = std::make_shared<MovableActor>(name, (32 * 5) + 0.01, 93);
 	brick->initialize(sprite);
+	brick->disable_movement();
 	bricks.push_back(brick);
+
+	std::shared_ptr<MovableActor> brick_c = std::make_shared<MovableActor>(name, (32 * 4) + 0.01, 93);
+	brick_c->initialize(sprite);
+	brick_c->disable_movement();
+	bricks.push_back(brick_c);
+
+	std::shared_ptr<MovableActor> brick_d = std::make_shared<MovableActor>(name, (32 * 8) + 0.01, 83);
+	brick_d->initialize(sprite);
+	brick_d->disable_movement();
+	bricks.push_back(brick_d);
+
+	std::shared_ptr<MovableActor> brick_e = std::make_shared<MovableActor>(name, (32 * 12) + 0.01, 115);
+	brick_e->initialize(sprite);
+	brick_e->disable_movement();
+	bricks.push_back(brick_e);
 
 	return bricks;
 }
@@ -45,8 +63,9 @@ std::shared_ptr<AnimatedActor> initialize_test() {
 		"./test.png",
 	};
 
-	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("player", 50, 0, 2.25f);
+	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("player", 50, 0, 2.75f);
 	actor->initialize({ _default, left, right });
+	//actor->enable_physics();
 
 	return actor;
 }

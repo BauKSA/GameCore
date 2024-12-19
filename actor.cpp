@@ -22,5 +22,11 @@ std::shared_ptr<Sprite> Actor::initialize(std::string& path) {
 	sprite->width = sprite->texture.getSize().x;
 	sprite->height = sprite->texture.getSize().y;
 
+	x += sprite->width / 2.f;
+
+	sprite->frame.setOrigin(sprite->width / 2.f, 0);
+	sprite->frame.setPosition(x, y);
+
+
 	return sprite;
 }

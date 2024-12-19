@@ -3,6 +3,11 @@
 #include "CollisionSystem.h"
 #include "MovableActor.h"
 
+bool CollisionSystem::check_vertices(sf::Vector2f vertex, sf::Vector2f top_left_limit, sf::Vector2f bottom_right_limit) {
+	return (vertex.x >= top_left_limit.x && vertex.x <= bottom_right_limit.x
+		&& vertex.y >= top_left_limit.y && vertex.y <= bottom_right_limit.y);
+}
+
 void CollisionSystem::update() {
 	for (size_t i = 0; i < actors.size(); i++) {
 		if (actors.at(i).expired()) continue;
@@ -20,44 +25,52 @@ void CollisionSystem::update() {
 			if (!actor_2) continue;
 			if (actor_1 == actor_2) continue;
 
-			float actor_1_ceil = actor_1->get_y();
-			float actor_1_floor = actor_1->get_y() + actor_1->get_height();
+			float margin = 8.f;
 
-			float actor_2_ceil = actor_2->get_y();
-			float actor_2_floor = actor_2->get_y() + actor_2->get_height();
+			sf::Vector2f top_left = { actor_1->get_x() - (actor_1->get_width() / 2.f), actor_1->get_y() };
+			sf::Vector2f top_right = { actor_1->get_x() + (actor_1->get_width() / 2.f), actor_1->get_y() };
+			sf::Vector2f bottom_left = { actor_1->get_x() - (actor_1->get_width() / 2.f), actor_1->get_y() + actor_1->get_height() };
+			sf::Vector2f bottom_right = { actor_1->get_x() + (actor_1->get_width() / 2.f), actor_1->get_y() + actor_1->get_height() };
 
-			float actor_1_left = actor_1->get_x();
-			float actor_1_right = actor_1->get_x() + actor_1->get_width();
+			sf::Vector2f actor_2_top_left = { actor_2->get_x() - (actor_2->get_width() / 2.f), actor_2->get_y() };
+			sf::Vector2f actor_2_bottom_right = { actor_2->get_x() + (actor_2->get_width() / 2.f), actor_2->get_y() + actor_2->get_height() };
 
-			float actor_2_left = actor_2->get_x();
-			float actor_2_right = actor_2->get_x() + actor_2->get_width();
-
-			float actor_x_margin = (actor_1->get_width() / 2);
-
-			//Si coninciden en X, buscamos colisión abajo (y)
-			if ((actor_1_right > actor_2_left && actor_1_left < actor_2_right)) {
-				if ((actor_1_floor > actor_2_ceil && std::abs(actor_1_floor - actor_2_ceil) < MAX_STEP)
-					|| (actor_1_floor < actor_2_ceil && std::abs(actor_1_floor - actor_2_ceil) < MIN_STEP)) {
-					float dif = (actor_1->get_y() + actor_1->get_height() - actor_2->get_y() - 1.0f) * -1;
-					actor_1->set_collider(actor_2, Collision::DOWN, dif);
+			if (check_vertices(bottom_left, actor_2_top_left, actor_2_bottom_right)) {
+				if (std::abs(bottom_right.y - actor_2_top_left.y) <= margin) {
+					float dif = bottom_right.y - actor_2_top_left.y;
+					actor_1->set_collider(actor_2, Collision::DOWN, -dif);
 					cdown = true;
-
+				}
+				else {
+					float dif = std::abs(bottom_left.x - actor_2_bottom_right.x);
+					actor_1->set_collider(actor_2, Collision::LEFT, dif + 0.5f);
+					cleft = true;
+				}
+			}
+			else if (check_vertices(bottom_right, actor_2_top_left, actor_2_bottom_right)) {
+				if (std::abs(bottom_right.y - actor_2_top_left.y) <= margin) {
+					float dif = bottom_right.y - actor_2_top_left.y;
+					actor_1->set_collider(actor_2, Collision::DOWN, -dif);
+					cdown = true;
+				}
+				else {
+					float dif = std::abs(bottom_right.x - actor_2_top_left.x);
+					actor_1->set_collider(actor_2, Collision::RIGHT, -dif - 0.5f);
+					cright = true;
 				}
 			}
 
-			//Si hay coincidencia en Y
-			if ((actor_1_floor - MAX_STEP > actor_2_ceil) && (actor_1_ceil < actor_2_floor)) {
-				//Buscamos colisión en RIGHT
-				if (actor_1_right + 1 > actor_2_left && actor_1_right < actor_2_right) {
-					actor_1->set_collider(actor_2, Collision::RIGHT);
-					cright = true;
-				}
-
-				//Buscamos colisión en LEFT
-				if (actor_1_left > actor_2_left && actor_1_left - 1 < actor_2_right) {
-					actor_1->set_collider(actor_2, Collision::LEFT);
-					cleft = true;
-				}
+			if (check_vertices(top_right, actor_2_top_left, actor_2_bottom_right)) {
+				if (cright) break;
+				float dif = std::abs(bottom_right.x - actor_2_top_left.x);
+				actor_1->set_collider(actor_2, Collision::RIGHT, -dif - 0.5f);
+				cright = true;
+			}
+			else if (check_vertices(top_left, actor_2_top_left, actor_2_bottom_right)) {
+				if (cleft) break;
+				float dif = std::abs(bottom_left.x - actor_2_bottom_right.x);
+				actor_1->set_collider(actor_2, Collision::LEFT, dif + 0.5f);
+				cleft = true;
 			}
 		}
 

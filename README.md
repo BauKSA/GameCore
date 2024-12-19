@@ -33,3 +33,6 @@ Pero bueno... veremos cómo sigue todo. Espero poder seguir sumando funcionalida
 Okey, ya laburando con SFML, mejoró bastante la sintaxis, que se asemeja más a C++ (y no tanto a C, como pasaba con ALLEGRO). En cuanto a funcionalidades, agregué un atributo depth a los actores y un DrawSystem, que se basa en ese depth para saber qué actor dibujar primero y cuál último. Con esto la idea es implementar un sistema que permita crear sprites que tapen 
 al player y otros que estén por detrás. Algo así como cuando en los RPG o juegos vistos desde arriba pasás por un árbol y el tronco está por detrás tuyo, pero la copa por delante. Espero que se entienda la idea (?). Hasta ahora está el primer paso, que fue agregar el system, después queda hacer que el atributo en los actors sea dinámico, así puede variar según 
 posiciones, etc. Pero eso ya queda a criterio de cada uno.
+
+## UPDATE 19-12-2024 20:10
+Estuve todo el día mejorando el sistema de colisión, para así poder agregar algunas físicas extra. Básicamente cambié el método de selección por posición x e y a uno que mira los 4 vértices del objeto. Siento que está mucho más robusto y completo, aunque todavía no le agregué colisión arriba.

@@ -35,6 +35,19 @@ void AnimatedActor::set_sprite(std::shared_ptr<Animation> animation) {
 }
 
 void AnimatedActor::tick(float delta_time) {
+	for (std::shared_ptr<Animation> an : animations) {
+		for (std::shared_ptr<Sprite> spr : an->frames) {
+			if (rotation != 0) {
+				if (spr == sprite) continue;
+				spr->frame.rotate(rotation);
+			}
+			else {
+				if (spr == sprite) continue;
+				spr->frame.setRotation(0);
+			}
+		}
+	}
+
 	MovableActor::tick(delta_time);
 	update(delta_time);
 }
@@ -50,7 +63,8 @@ void AnimatedActor::update(float delta_time) {
 void AnimatedActor::next_animation_sprite() {
 	if (current_frame + 1 >= current_animation->size) {
 		current_frame = 0;
-	} else {
+	}
+	else {
 		current_frame++;
 	}
 
