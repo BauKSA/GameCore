@@ -37,9 +37,6 @@
     <ClCompile Include="test.cpp">
       <Filter>Archivos de recursos\Test</Filter>
     </ClCompile>
-    <ClCompile Include="jumpComponent.cpp">
-      <Filter>Archivos de encabezado\Components\JumpComponent</Filter>
-    </ClCompile>
     <ClCompile Include="collisionSystem.cpp">
       <Filter>Archivos de encabezado\Systems\CollisionSystem</Filter>
     </ClCompile>
@@ -114,9 +111,6 @@
     <ClInclude Include="Test.h">
       <Filter>Archivos de recursos\Test</Filter>
     </ClInclude>
-    <ClInclude Include="JumpComponent.h">
-      <Filter>Archivos de encabezado\Components\JumpComponent</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionSystem.h">
       <Filter>Archivos de encabezado\Systems\CollisionSystem</Filter>
     </ClInclude>
@@ -157,9 +151,6 @@
     </Filter>
     <Filter Include="Archivos de recursos\Test">
       <UniqueIdentifier>{eca1ae46-b2aa-465f-b93f-e4531782fb12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Components\JumpComponent">
-      <UniqueIdentifier>{bb19fc10-c30d-438f-bcab-7910699b9320}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de encabezado\Systems\CollisionSystem">
       <UniqueIdentifier>{82f06e35-8393-456e-a7e6-04d1a40c1d77}</UniqueIdentifier>

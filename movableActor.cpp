@@ -62,18 +62,14 @@ void MovableActor::tick(float delta_time) {
 		components.at(i)->tick(delta_time, *this);
 	}
 
-	if (std::find(collision.begin(), collision.end(), Collision::DOWN) != collision.end() && jumping && gravity) {
-		jumping = false;
-		disable_gravity();
-		set_movement(Directions::DOWN, false);
-		rotation = 0;
-		stabilizing = true;
-	}
-	else if (std::find(collision.begin(), collision.end(), Collision::DOWN) == collision.end() && !jumping) {
-		jumping = true;
-		enable_gravity();
-	}
+	if (vspeed <= 0 && jumping) jumping = false;
 
+	if (std::find(collision.begin(), collision.end(), Collision::DOWN) != collision.end() && !jumping)
+		vspeed = 0;
+	else if(std::find(collision.begin(), collision.end(), Collision::DOWN) == collision.end() && vspeed == 0)
+		vspeed = 0.00000000001f;
+
+	/*
 	if (rotation != 0) {
 		sprite->frame.rotate(rotation);
 	}
@@ -89,14 +85,10 @@ void MovableActor::tick(float delta_time) {
 		}
 		stabilizing = false;
 	}
+	*/
 
-	if (mup && !mdown) {
-		move(Directions::UP);
-	}
-
-	if (mdown && !mup && std::find(collision.begin(), collision.end(), Collision::DOWN) == collision.end()) {
-		move(Directions::DOWN);
-	}
+	if (vspeed > 0 && !mup) move(Directions::UP);
+	else if (vspeed < 0 && !mdown) move(Directions::DOWN);
 
 	if (mright && !mleft && std::find(collision.begin(), collision.end(), Collision::RIGHT) == collision.end()) {
 		move(Directions::RIGHT);
@@ -108,14 +100,13 @@ void MovableActor::tick(float delta_time) {
 }
 
 void MovableActor::jump() {
-	if (jumping) return;
+	if (vspeed < 0 || jumping) return;
 
 	std::vector<Collision>::iterator it = std::find(collision.begin(), collision.end(), Collision::DOWN);
 	if (it != collision.end())
 		collision.at(std::distance(collision.begin(), it)) = Collision::NONE;
 
-	disable_gravity();
-	set_vspeed(JUMP);
+	vspeed = JUMP;
 	jumping = true;
 }
 

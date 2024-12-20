@@ -9,6 +9,7 @@ bool CollisionSystem::check_vertices(sf::Vector2f vertex, sf::Vector2f top_left_
 }
 
 void CollisionSystem::update() {
+
 	for (size_t i = 0; i < actors.size(); i++) {
 		if (actors.at(i).expired()) continue;
 		std::shared_ptr<MovableActor> actor_1 = actors.at(i).lock();

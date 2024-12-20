@@ -16,7 +16,6 @@ int main(int argc, char** argv) {
 	input->start_listening();
 
 	std::shared_ptr<GravityComponent> gravity = std::make_shared<GravityComponent>();
-	std::shared_ptr<JumpComponent> jump = std::make_shared<JumpComponent>();
 
 	std::unique_ptr<TickSystem> tick = std::make_unique<TickSystem>();
 	std::unique_ptr<CollisionSystem> collision = std::make_unique<CollisionSystem>();
@@ -24,7 +23,6 @@ int main(int argc, char** argv) {
 	std::unique_ptr<PhysicsSystem> physics = std::make_unique<PhysicsSystem>();
 
 	actor->add_component(gravity);
-	actor->add_component(jump);
 
 	tick->add_actor(actor);
 	collision->add_actor(actor);

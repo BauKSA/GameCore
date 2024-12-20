@@ -206,7 +206,6 @@
     <ClCompile Include="inputDriver.cpp" />
     <ClCompile Include="inputHandler.cpp" />
     <ClCompile Include="inputSystem.cpp" />
-    <ClCompile Include="jumpComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="moveCommands.cpp" />
     <ClCompile Include="test.cpp" />
@@ -231,7 +230,6 @@
     <ClInclude Include="InputDriver.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="JoystickMapping.h" />
-    <ClInclude Include="JumpComponent.h" />
     <ClInclude Include="MoveCommands.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="TickSystem.h" />

@@ -65,7 +65,7 @@ std::shared_ptr<AnimatedActor> initialize_test() {
 
 	std::shared_ptr<AnimatedActor> actor = std::make_shared<AnimatedActor>("player", 50, 0, 2.75f);
 	actor->initialize({ _default, left, right });
-	//actor->enable_physics();
+	actor->enable_physics();
 
 	return actor;
 }

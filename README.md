@@ -36,3 +36,7 @@ posiciones, etc. Pero eso ya queda a criterio de cada uno.
 
 ## UPDATE 19-12-2024 20:10
 Estuve todo el día mejorando el sistema de colisión, para así poder agregar algunas físicas extra. Básicamente cambié el método de selección por posición x e y a uno que mira los 4 vértices del objeto. Siento que está mucho más robusto y completo, aunque todavía no le agregué colisión arriba.
+
+## UPDATE 20-12-2024 12:50
+Me di cuenta que de que el JumpComponent era una bazofia (sí, tardé demasiado...), así que lo unifiqué con el GravityComponent y a la mierda. Solo quedó el método jump en el MovableActor, pero en una versión definitiva del Core volaría, ya que lo único que hace es aumentar la vspeed y no todos los actores que haya en un juego lo van a usar, es un comando más "personal".
+Sumado a esto, tengo pensado hacer algunos refactors más con las velocidades. Veremos qué sale.
