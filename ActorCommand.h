@@ -6,7 +6,7 @@
 
 class ActorCommand : public Command {
 public:
-	virtual void execute(AnimatedActor& actor) override {};
+	virtual void execute(MovableActor& actor) override {};
 };
 
 

@@ -9,7 +9,7 @@ bool PhysicsSystem::check_vertices(sf::Vector2f vertex, sf::Vector2f top_left_li
 void PhysicsSystem::update() {
 	for (size_t i = 0; i < actors.size(); i++) {
 		if (actors.at(i).expired()) continue;
-		std::shared_ptr<MovableActor> actor_1 = actors.at(i).lock();
+		std::shared_ptr<Actor> actor_1 = actors.at(i).lock();
 		if (!actor_1) continue;
 
 		bool cdown = false;
@@ -18,7 +18,7 @@ void PhysicsSystem::update() {
 
 		for (size_t j = 0; j < actors.size(); j++) {
 			if (actors.at(j).expired()) continue;
-			std::shared_ptr<MovableActor> actor_2 = actors.at(j).lock();
+			std::shared_ptr<Actor> actor_2 = actors.at(j).lock();
 
 			if (!actor_2) continue;
 			if (actor_1 == actor_2) continue;

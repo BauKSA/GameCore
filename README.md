@@ -40,3 +40,7 @@ Estuve todo el día mejorando el sistema de colisión, para así poder agregar a
 ## UPDATE 20-12-2024 12:50
 Me di cuenta que de que el JumpComponent era una bazofia (sí, tardé demasiado...), así que lo unifiqué con el GravityComponent y a la mierda. Solo quedó el método jump en el MovableActor, pero en una versión definitiva del Core volaría, ya que lo único que hace es aumentar la vspeed y no todos los actores que haya en un juego lo van a usar, es un comando más "personal".
 Sumado a esto, tengo pensado hacer algunos refactors más con las velocidades. Veremos qué sale.
+
+## UPDATE 23-12-2024 11:35
+Hice un refactor interesante que creo que me acomodó mucho mejor las clases de los actores. Le agregué métodos virtuales como tick y move a Actor (sin definición) y le pasé todos los métodos y atributos de colisión de MovableActor. Cambié los systems para que ahora reciban Actor y no MovableActor y cambié la herencia de actores que quedó con esta jerarquía: 
+Actor -> AnimatedActor -> MovableActor

@@ -13,10 +13,18 @@ protected:
 	float x;
 	float y;
 	float depth;
+
+	bool movement;
+
+	std::shared_ptr<Actor> collider;
+	std::vector<Collision> collision;
+	std::vector<std::string> available_colliders;
 public:
 	Actor(std::string _name, float _x, float _y, float _depth = 1.0f) :
-		x(_x), y(_y), name(_name), depth(_depth) {
+		x(_x), y(_y), name(_name), depth(_depth), movement(false) {
 		sprite = nullptr;
+		collider = nullptr;
+		collision = { Collision::NONE, Collision::NONE, Collision::NONE, Collision::NONE };
 	}
 
 	virtual std::shared_ptr<Sprite> initialize(std::string& path);
@@ -31,6 +39,13 @@ public:
 	float get_depth() const { return depth; }
 
 	std::string get_name() const { return name; }
+
+	virtual void set_collider(std::shared_ptr<Actor> actor, Collision col = Collision::NONE, float dif = 0.0f);
+	void disable_collision(Collision col);
+
+	//Virtuals
+	virtual void tick(float delta_time) {};
+	virtual void move(Directions dir) {};
 
 	void destroy() const { auto self = shared_from_this(); self.reset(); }
 };

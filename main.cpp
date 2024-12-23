@@ -10,8 +10,8 @@ int main(int argc, char** argv) {
 	float last_frame_time = 0.0f;
 
 	sf::RenderWindow& window = GameWindow::window();
-	std::shared_ptr<AnimatedActor> actor = initialize_test();
-	std::vector<std::shared_ptr<MovableActor>> bricks = initialize_bricks();
+	std::shared_ptr<MovableActor> actor = initialize_test();
+	std::vector<std::shared_ptr<Actor>> bricks = initialize_bricks();
 	std::unique_ptr<InputSystem> input = std::move(initialize_input());
 	input->start_listening();
 
@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 	physics->add_actor(actor);
 	draw->add_actor(actor);
 
-	for (std::shared_ptr<MovableActor> brick : bricks) {
+	for (std::shared_ptr<Actor> brick : bricks) {
 		collision->add_actor(brick);
 		tick->add_actor(brick);
 		draw->add_actor(brick);

@@ -3,12 +3,12 @@
 
 void DrawSystem::update() {
 	std::sort(actors.begin(), actors.end(),
-		[](const std::weak_ptr<MovableActor> a, const std::weak_ptr<MovableActor> b) {
+		[](const std::weak_ptr<Actor> a, const std::weak_ptr<Actor> b) {
 			if (a.expired()) return false;
 			if (b.expired()) return true;
 
-			std::shared_ptr<MovableActor> actor_1 = a.lock();
-			std::shared_ptr<MovableActor> actor_2 = b.lock();
+			std::shared_ptr<Actor> actor_1 = a.lock();
+			std::shared_ptr<Actor> actor_2 = b.lock();
 			if (!actor_1) return false;
 			if (!actor_2) return true;
 
@@ -21,7 +21,7 @@ void DrawSystem::update() {
 void DrawSystem::draw() {
 	for (size_t i = 0; i < actors.size(); i++) {
 		if (actors.at(i).expired()) continue;
-		std::shared_ptr<MovableActor> actor = actors.at(i).lock();
+		std::shared_ptr<Actor> actor = actors.at(i).lock();
 		if (!actor) continue;
 
 		actor->draw();

@@ -109,32 +109,3 @@ void MovableActor::jump() {
 	vspeed = JUMP;
 	jumping = true;
 }
-
-void MovableActor::disable_collision(Collision col) {
-	std::vector<Collision>::iterator it = std::find(collision.begin(), collision.end(), col);
-	if (it != collision.end()) {
-		collision.at(std::distance(collision.begin(), it)) = Collision::NONE;
-	}
-}
-
-void MovableActor::set_collider(std::shared_ptr<MovableActor> actor, Collision col, float dif) {
-	collider = actor ? actor : nullptr;
-
-	std::vector<Collision>::iterator it = std::find(collision.begin(), collision.end(), col);
-	if (it == collision.end()) {
-		if (collision.size() == 4) {
-			std::vector<Collision>::iterator it = std::find(collision.begin(), collision.end(), Collision::NONE);
-			if (it != collision.end()) {
-				collision.at(std::distance(collision.begin(), it)) = col;
-			}
-		}
-		else {
-			collision.push_back(col);
-		}
-	}
-
-	if (!movement) return;
-
-	if (col == Collision::UP || col == Collision::DOWN) y += dif;
-	else if (col == Collision::RIGHT || col == Collision::LEFT) x += dif;
-}

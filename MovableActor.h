@@ -3,7 +3,7 @@
 #include<vector>
 #include<memory>
 
-#include "Actor.h"
+#include "AnimatedActor.h"
 #include "System.h"
 #include "Component.h"
 #include "Utils.h"
@@ -11,7 +11,7 @@
 #ifndef _MOVABLEACTOR_
 #define _MOVABLEACTOR_
 
-class MovableActor : public Actor {
+class MovableActor : public AnimatedActor {
 protected:
 	//speed
 	float hspeed;
@@ -23,8 +23,6 @@ protected:
 	bool mright;
 	bool mleft;
 
-	bool movement;
-
 	float rotation;
 	float rotation_origin;
 
@@ -34,19 +32,14 @@ protected:
 	bool stable;
 	bool stabilizing;
 
-	std::vector<Collision> collision;
-
-	std::weak_ptr<MovableActor> collider;
-	std::vector<std::string> available_colliders;
-
 	std::vector<std::shared_ptr<Component>> components;
 public:
 	MovableActor(std::string name, float x, float y, float speed = 0, float depth = 1.0f) :
-		Actor(name, x, y, depth), hspeed(speed), vspeed(0),
-		mup(false), mdown(false), mright(false), mleft(false), rotation(0.0f), rotation_origin(0.0f), movement(true),
+		AnimatedActor(name, x, y, depth), hspeed(speed), vspeed(0),
+		mup(false), mdown(false), mright(false), mleft(false), rotation(0.0f), rotation_origin(0.0f),
 		gravity(true), jumping(false), physics(false), stable(true), stabilizing(false){
 		components = {};
-		collision = { Collision::NONE, Collision::NONE, Collision::NONE, Collision::NONE };
+		movement = true;
 	};
 
 
@@ -61,7 +54,7 @@ public:
 
 	//Virtuals
 	virtual void tick(float delta_time);
-	virtual std::shared_ptr<Sprite> initialize(std::string& path) override { return Actor::initialize(path); }
+	virtual void initialize(std::vector<AnimationPaths> paths) override { return AnimatedActor::initialize(paths); }
 
 	//Declared
 	//Speed
@@ -86,8 +79,6 @@ public:
 	bool is_stable() const { return stable; };
 	void stabilize(bool s) { stable = s; };
 	bool is_stabilizing()const { return stabilizing; };
-
-	void set_collider(std::shared_ptr<MovableActor> actor, Collision col = Collision::NONE, float dif = 0.0f);
 };
 
 #endif // !_MOVABLEACTOR_

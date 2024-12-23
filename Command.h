@@ -8,7 +8,7 @@
 class Command {
 public:
 	virtual void execute() {};
-	virtual void execute(AnimatedActor& actor) {};
+	virtual void execute(MovableActor& actor) {};
 	virtual void execute(bool& running) {};
 };
 
