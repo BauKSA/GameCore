@@ -58,7 +58,7 @@ std::shared_ptr<MovableActor> initialize_test() {
 		"./test.png",
 	};
 
-	std::shared_ptr<MovableActor> actor = std::make_shared<MovableActor>("player", 50, 0, 2.75f);
+	std::shared_ptr<MovableActor> actor = std::make_shared<MovableActor>("player", 50, 0, 3.5f);
 	actor->initialize({ _default, left, right });
 	actor->enable_physics();
 

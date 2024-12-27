@@ -26,6 +26,7 @@ public:
 
 	void set_animation(std::string name);
 	void next_animation_sprite();
+	std::string get_animation()const { return current_animation->name; }
 
 	virtual void tick(float delta_time) override;
 	void update(float delta_time);

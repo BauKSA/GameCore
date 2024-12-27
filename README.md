@@ -44,3 +44,6 @@ Sumado a esto, tengo pensado hacer algunos refactors más con las velocidades. V
 ## UPDATE 23-12-2024 11:35
 Hice un refactor interesante que creo que me acomodó mucho mejor las clases de los actores. Le agregué métodos virtuales como tick y move a Actor (sin definición) y le pasé todos los métodos y atributos de colisión de MovableActor. Cambié los systems para que ahora reciban Actor y no MovableActor y cambié la herencia de actores que quedó con esta jerarquía: 
 Actor -> AnimatedActor -> MovableActor
+
+## UPDATE 27-12-2024 10:50
+Hice algunos arreglos en las colisiones y el movimiento. Agregué aceleración y fricción y aumenté un poco la gravedad en las caídas del salto.

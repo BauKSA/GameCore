@@ -44,7 +44,7 @@ void CollisionSystem::update() {
 				}
 				else {
 					float dif = std::abs(bottom_left.x - actor_2_bottom_right.x);
-					actor_1->set_collider(actor_2, Collision::LEFT, dif + 0.5f);
+					actor_1->set_collider(actor_2, Collision::LEFT, dif + 0.15f);
 					cleft = true;
 				}
 			}
@@ -56,7 +56,7 @@ void CollisionSystem::update() {
 				}
 				else {
 					float dif = std::abs(bottom_right.x - actor_2_top_left.x);
-					actor_1->set_collider(actor_2, Collision::RIGHT, -dif - 0.5f);
+					actor_1->set_collider(actor_2, Collision::RIGHT, -dif - 0.15f);
 					cright = true;
 				}
 			}
@@ -64,13 +64,13 @@ void CollisionSystem::update() {
 			if (check_vertices(top_right, actor_2_top_left, actor_2_bottom_right)) {
 				if (cright) break;
 				float dif = std::abs(bottom_right.x - actor_2_top_left.x);
-				actor_1->set_collider(actor_2, Collision::RIGHT, -dif - 0.5f);
+				actor_1->set_collider(actor_2, Collision::RIGHT, -dif - 0.15f);
 				cright = true;
 			}
 			else if (check_vertices(top_left, actor_2_top_left, actor_2_bottom_right)) {
 				if (cleft) break;
 				float dif = std::abs(bottom_left.x - actor_2_bottom_right.x);
-				actor_1->set_collider(actor_2, Collision::LEFT, dif + 0.5f);
+				actor_1->set_collider(actor_2, Collision::LEFT, dif + 0.15f);
 				cleft = true;
 			}
 		}
