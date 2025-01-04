@@ -36,7 +36,7 @@ protected:
 	bool stable;
 	bool stabilizing;
 
-	std::vector<std::shared_ptr<Component>> components;
+	std::vector<std::shared_ptr<Component<MovableActor>>> components;
 public:
 	MovableActor(std::string name, float x, float y, float _speed = 0, float depth = 1.0f) :
 		AnimatedActor(name, x, y, depth), hspeed(0.0f), vspeed(0.0f), speed(_speed), acceleration(10.f), friction(12.f),
@@ -52,7 +52,7 @@ public:
 	void move(Directions dir);
 	void jump();
 
-	void add_component(std::shared_ptr<Component> component);
+	void add_component(std::shared_ptr<Component<MovableActor>> component);
 
 	//Virtuals
 	virtual void tick(float delta_time);

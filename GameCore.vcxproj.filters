@@ -22,17 +22,11 @@
     <ClCompile Include="gravityComponent.cpp">
       <Filter>Archivos de encabezado\Components\GravityComponent</Filter>
     </ClCompile>
-    <ClCompile Include="moveCommands.cpp">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands\MoveCommands</Filter>
+    <ClCompile Include="inputComponent.hpp">
+      <Filter>Archivos de encabezado\Components\InputComponent\Component</Filter>
     </ClCompile>
-    <ClCompile Include="inputSystem.cpp">
-      <Filter>Archivos de encabezado\Systems\InputSystem\System</Filter>
-    </ClCompile>
-    <ClCompile Include="inputDriver.cpp">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Driver</Filter>
-    </ClCompile>
-    <ClCompile Include="inputHandler.cpp">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Handler</Filter>
+    <ClCompile Include="inputDriver.hpp">
+      <Filter>Archivos de encabezado\Components\InputComponent\Driver</Filter>
     </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>Archivos de recursos\Test</Filter>
@@ -82,28 +76,13 @@
       <Filter>Archivos de encabezado\Components\GravityComponent</Filter>
     </ClInclude>
     <ClInclude Include="Command.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\Command</Filter>
+      <Filter>Archivos de encabezado\Components\InputComponent\Commands\Command</Filter>
     </ClInclude>
-    <ClInclude Include="MoveCommands.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands\MoveCommands</Filter>
-    </ClInclude>
-    <ClInclude Include="InputSystem.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\System</Filter>
+    <ClInclude Include="InputComponent.h">
+      <Filter>Archivos de encabezado\Components\InputComponent\Component</Filter>
     </ClInclude>
     <ClInclude Include="InputDriver.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Driver</Filter>
-    </ClInclude>
-    <ClInclude Include="InputHandler.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Handler</Filter>
-    </ClInclude>
-    <ClInclude Include="ActorCommand.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands</Filter>
-    </ClInclude>
-    <ClInclude Include="GlobalCommand.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\GlobalCommands</Filter>
-    </ClInclude>
-    <ClInclude Include="CloseCommand.h">
-      <Filter>Archivos de encabezado\Systems\InputSystem\Commands\GlobalCommands</Filter>
+      <Filter>Archivos de encabezado\Components\InputComponent\Driver</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies.h">
       <Filter>Archivos de recursos</Filter>
@@ -119,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="PhysicsSystem.h">
       <Filter>Archivos de encabezado\Systems\PhysicsSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TestCommands.h">
+      <Filter>Archivos de encabezado\Components\InputComponent\Commands\TestCommands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -170,38 +152,29 @@
     <Filter Include="Archivos de encabezado\Systems\System">
       <UniqueIdentifier>{13b5e80c-2b39-49c8-889a-ab10e7bc0347}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem">
-      <UniqueIdentifier>{33d8c055-9a69-41b5-a82a-e2c34c7cb7e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands">
-      <UniqueIdentifier>{d8a57d69-2d39-429e-9fa1-eeee94728901}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands">
-      <UniqueIdentifier>{7cbc27a5-fe10-4a32-aeb2-fdb66091d09e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\ActorCommands\MoveCommands">
-      <UniqueIdentifier>{a46ed297-375d-46b3-b154-bbd98f05651e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\GlobalCommands">
-      <UniqueIdentifier>{fadaddae-363e-479e-949a-d23b44c4950a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\System">
-      <UniqueIdentifier>{d9cae08d-b5a3-4487-a32a-00660231de50}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\Driver">
-      <UniqueIdentifier>{58378fff-a057-4675-90ea-bba6f86eea39}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\Handler">
-      <UniqueIdentifier>{3f287f80-5db4-403e-9901-a163d49f7970}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Systems\InputSystem\Commands\Command">
-      <UniqueIdentifier>{b44d2a85-9e3d-459f-a901-4e7fe017538a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de encabezado\Systems\DrawSystem">
       <UniqueIdentifier>{e59c6faf-6ed4-4de9-8137-67a7f4c76630}</UniqueIdentifier>
     </Filter>
     <Filter Include="Archivos de encabezado\Systems\PhysicsSystem">
       <UniqueIdentifier>{97839b4c-8ef5-4158-b5b6-1bc7def051c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\InputComponent">
+      <UniqueIdentifier>{33d8c055-9a69-41b5-a82a-e2c34c7cb7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\InputComponent\Commands">
+      <UniqueIdentifier>{d8a57d69-2d39-429e-9fa1-eeee94728901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\InputComponent\Commands\Command">
+      <UniqueIdentifier>{b44d2a85-9e3d-459f-a901-4e7fe017538a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\InputComponent\Driver">
+      <UniqueIdentifier>{58378fff-a057-4675-90ea-bba6f86eea39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\InputComponent\Component">
+      <UniqueIdentifier>{d9cae08d-b5a3-4487-a32a-00660231de50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Components\InputComponent\Commands\TestCommands">
+      <UniqueIdentifier>{08772d9f-e5ff-4a41-ab1a-1fba8a73807a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

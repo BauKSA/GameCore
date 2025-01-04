@@ -12,8 +12,7 @@ int main(int argc, char** argv) {
 	sf::RenderWindow& window = GameWindow::window();
 	std::shared_ptr<MovableActor> actor = initialize_test();
 	std::vector<std::shared_ptr<Actor>> bricks = initialize_bricks();
-	std::unique_ptr<InputSystem> input = std::move(initialize_input());
-	input->start_listening();
+	std::shared_ptr<InputComponent<MovableActor>> input = initialize_input();
 
 	std::shared_ptr<GravityComponent> gravity = std::make_shared<GravityComponent>();
 
@@ -23,6 +22,7 @@ int main(int argc, char** argv) {
 	std::unique_ptr<PhysicsSystem> physics = std::make_unique<PhysicsSystem>();
 
 	actor->add_component(gravity);
+	actor->add_component(input);
 
 	tick->add_actor(actor);
 	collision->add_actor(actor);
@@ -35,9 +35,6 @@ int main(int argc, char** argv) {
 		draw->add_actor(brick);
 		physics->add_actor(brick);
 	}
-
-	std::shared_ptr<Command> command;
-	std::shared_ptr<InputHandler> handler = std::make_shared<InputHandler>(actor, &running);
 
 	std::vector<float> deltas{};
 
@@ -63,12 +60,6 @@ int main(int argc, char** argv) {
 		}
 		else if (delta_time < 0.0001f) {
 			std::cerr << "[WARNING] delta_time extremadamente bajo: " << delta_time << " segundos. Posible error de cálculo." << std::endl;
-		}
-
-
-		command = input->listen();
-		if (command) {
-			handler->check(command);
 		}
 
 		tick->update(delta_time);

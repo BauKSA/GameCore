@@ -65,27 +65,25 @@ std::shared_ptr<MovableActor> initialize_test() {
 	return actor;
 }
 
-std::unique_ptr<InputSystem> initialize_input() {
-	std::shared_ptr<MoveRightCommand> move_right = std::make_shared<MoveRightCommand>();
-	std::shared_ptr<MoveLeftCommand> move_left = std::make_shared<MoveLeftCommand>();
-	std::shared_ptr<StandRightCommand> stand_right = std::make_shared<StandRightCommand>();
-	std::shared_ptr<StandLeftCommand> stand_left = std::make_shared<StandLeftCommand>();
-	std::shared_ptr<CloseCommand> _close = std::make_shared<CloseCommand>();
-	std::shared_ptr<JumpCommand> _jump = std::make_shared<JumpCommand>();
-	std::shared_ptr<StopJumpCommand> _stop_jump = std::make_shared<StopJumpCommand>();
+std::shared_ptr<InputComponent<MovableActor>> initialize_input() {
+	std::shared_ptr<MoveRight> move_right = std::make_shared<MoveRight>();
+	std::shared_ptr<StandRight> stand_right = std::make_shared<StandRight>();
+	std::shared_ptr<MoveLeft> move_left = std::make_shared<MoveLeft>();
+	std::shared_ptr<StandLeft> stand_left = std::make_shared<StandLeft>();
 
-	KeyCommand right(sf::Keyboard::D, true, move_right);
-	KeyCommand left(sf::Keyboard::A, true, move_left);
-	KeyCommand sright(sf::Keyboard::D, false, stand_right);
-	KeyCommand sleft(sf::Keyboard::A, false, stand_left);
-	KeyCommand close(sf::Keyboard::Escape, true, _close);
-	KeyCommand jump(sf::Keyboard::K, true, _jump);
-	KeyCommand stop_jump(sf::Keyboard::K, false, _stop_jump);
+	KeyCommand<MovableActor> right(sf::Keyboard::D, true, move_right);
+	KeyCommand<MovableActor> left(sf::Keyboard::A, true, move_left);
+	KeyCommand<MovableActor> sright(sf::Keyboard::D, false, stand_right);
+	KeyCommand<MovableActor> sleft(sf::Keyboard::A, false, stand_left);
 
-	std::vector<KeyCommand> commands{ right, left, sright, sleft, close, jump, stop_jump };
+	//KeyCommand<MovableActor> close(sf::Keyboard::Escape, true, _close);
+	//KeyCommand<MovableActor> jump(sf::Keyboard::K, true, _jump);
+	//KeyCommand<MovableActor> stop_jump(sf::Keyboard::K, false, _stop_jump);
 
-	std::unique_ptr<InputDriver> driver = std::make_unique<InputDriver>(commands);
-	std::unique_ptr<InputSystem> test_input = std::make_unique<InputSystem>(std::move(driver));
+	std::vector<KeyCommand<MovableActor>> commands{ right, left, sright, sleft };
+
+	std::shared_ptr<InputDriver<MovableActor>> driver = std::make_shared<InputDriver<MovableActor>>(commands);
+	std::shared_ptr<InputComponent<MovableActor>> test_input = std::make_shared<InputComponent<MovableActor>>(std::move(driver));
 
 	return test_input;
 }

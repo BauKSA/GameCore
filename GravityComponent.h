@@ -5,7 +5,7 @@
 #ifndef _GRAVITYCOMPONENT_
 #define _GRAVITYCOMPONENT_
 
-class GravityComponent : public Component {
+class GravityComponent : public Component<MovableActor> {
 protected:
 	const float GRAVITY;
 public:

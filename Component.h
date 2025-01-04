@@ -4,12 +4,12 @@
 #ifndef _GENERICCOMPONENT_
 #define _GENERICCOMPONENT_
 
-class MovableActor;
 
+template <typename T>
 class Component {
 public:
 	Component() {};
-	virtual void tick(float delta_time, MovableActor& actor) {};
+	virtual void tick(float delta_time, T& actor) = 0;
 };
 
 #endif // !_GENERICCOMPONENT_

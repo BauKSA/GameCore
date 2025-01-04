@@ -3,7 +3,7 @@
 
 #include "MovableActor.h"
 
-void MovableActor::add_component(std::shared_ptr<Component> component) {
+void MovableActor::add_component(std::shared_ptr<Component<MovableActor>> component) {
 	components.push_back(component);
 }
 

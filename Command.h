@@ -5,11 +5,11 @@
 #ifndef _COMMAND_
 #define _COMMAND_
 
+template <typename T>
 class Command {
 public:
-	virtual void execute() {};
-	virtual void execute(MovableActor& actor) {};
-	virtual void execute(bool& running) {};
+	virtual ~Command() = default;
+	virtual void execute(T& actor) = 0;
 };
 
 #endif // !_COMMAND_

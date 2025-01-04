@@ -203,21 +203,17 @@
     <ClCompile Include="physicsSystem.cpp" />
     <ClCompile Include="system.cpp" />
     <ClCompile Include="gravityComponent.cpp" />
-    <ClCompile Include="inputDriver.cpp" />
-    <ClCompile Include="inputHandler.cpp" />
-    <ClCompile Include="inputSystem.cpp" />
+    <ClCompile Include="inputDriver.hpp" />
+    <ClCompile Include="inputComponent.hpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="moveCommands.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="tickSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ActorCommand.h" />
     <ClInclude Include="DrawSystem.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="AnimatedActor.h" />
     <ClInclude Include="MovableActor.h" />
-    <ClInclude Include="CloseCommand.h" />
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="Dependencies.h" />
     <ClInclude Include="Command.h" />
@@ -225,16 +221,14 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="System.h" />
-    <ClInclude Include="GlobalCommand.h" />
     <ClInclude Include="GravityComponent.h" />
     <ClInclude Include="InputDriver.h" />
-    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="JoystickMapping.h" />
-    <ClInclude Include="MoveCommands.h" />
     <ClInclude Include="Test.h" />
+    <ClInclude Include="TestCommands.h" />
     <ClInclude Include="TickSystem.h" />
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="InputSystem.h" />
+    <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
