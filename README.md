@@ -52,3 +52,7 @@ Hice algunos arreglos en las colisiones y el movimiento. Agregué aceleración y
 Primer cambio del año! Creo que mandé algo potente... Convertí InputSystem a InputComponent. Por qué?? Básicamente porque me parecía interesante que el input sea propio de cada actor. Ya se me hacía cuesta arriba tener dos tipos de Commands donde puedas mandar o Actor& o bool& (para el running y cerrar la ventana), así que decidí que Input, además de ser un Component y
 ser propio de cada Actor, sea un template. Entonces, quedaría algo así como InputComponent<MovableActor>... con esto básicamente logro que las instancias de Input que cree sean 100% de un Actor específico y simplifico MUCHÍSIMOOOO las cosas. Me gustaría, igualmente, agregarle algún handler que maneje todo, ya que ahora hay que crear todos los componentes uno a uno:
 InputComponent<T>, InputDriver<T>, Command<T>... estaría bueno que haya una clase centralizada <T> que ya me cree todo de una. Pero bueno, eso es algo que queda para más adelante. Por ahora tengo que corregir algunas cositas más que estuve viendo mientras hacía esto.
+
+# FIN DEL PROYECTO!
+Bueno... siento que ya no puedo aportar más a este proyecto. En el camino aprendí mucho y ya no creo que me aporte mucho continuar con esto. Cambié muchos enfoques, aprendí nuevas arquitecturas y formé una mirada interesante sobre el game dev y los motores propios. Ahora miro el código y veo que es un desastre, jajaja, pero al mismo tiempo lo miro con cariño, ya que me ayudó a crecer muchísimo.
+Lo voy a dejar acá como prueba de mi progreso como game dev.
